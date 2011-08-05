@@ -11,10 +11,10 @@ What is the largest prime factor of the number 600851475143 ?
 public class Problem3 implements Problem{
     public String getAnswer() {
         long value = 600851475143L;
-        long currCheck = 1;
+        long currCheck = (long)Math.sqrt(value);
 
-        while (currCheck<value) {
-            currCheck = PrimeUtil.getNextPrime(currCheck);
+        while (currCheck>2) {
+            currCheck = PrimeUtil.getPrevPrime(currCheck);
             if (value%currCheck==0)
                 return Long.toString(currCheck);
         }

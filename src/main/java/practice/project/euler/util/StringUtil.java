@@ -22,10 +22,10 @@ public class StringUtil {
 
     public static boolean isPandigital(String number)
     {
-        if (number.length() != 9)
+        if (number.length() > 9)
             return false;
 
-        for (int i = 1;i<10;i++)
+        for (int i = 1;i<=number.length();i++)
             if(!number.contains(Integer.toString(i)))
                 return false;
 

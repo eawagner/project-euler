@@ -17,9 +17,8 @@ What is the total of all the name scores in the file?
  */
 public class Problem22 implements Problem{
     public String getAnswer() throws IOException {
-        BufferedReader reader = GeneralUtil.getResource("problem22.txt");
 
-        String [] names = reader.readLine().replace("\"","").split(",");
+        String [] names = GeneralUtil.getResource("problem22.txt").readLine().replace("\"","").split(",");
         Arrays.sort(names);
         long retVal = 0;
         for (int i = 0;i<names.length;i++)
