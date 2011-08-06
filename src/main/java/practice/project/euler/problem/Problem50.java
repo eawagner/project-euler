@@ -1,6 +1,10 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.PrimeUtil;
+import practice.project.euler.util.model.Tuple;
+
+import java.util.*;
 
 /*
 The prime 41, can be written as the sum of six consecutive primes:
@@ -14,7 +18,18 @@ Which prime, below one-million, can be written as the sum of the most consecutiv
 
 */
 public class Problem50 implements Problem{
+
+
+
     public String getAnswer() throws Exception {
+
+        List<Long> indexed = new ArrayList<Long>();
+        PrimeUtil.getPrimes(1000000,indexed);
+
+        Collection<Long> fastLookup = new HashSet<Long>(indexed);
+
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+
 }

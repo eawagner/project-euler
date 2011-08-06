@@ -36,13 +36,22 @@ public class PrimeUtil {
     public static Collection<Long> getPrimes(long start, long max)
     {
         Collection<Long> primes = new HashSet<Long>();
+        getPrimes(start,max,primes);
+        return primes;
+    }
 
+    public static void getPrimes (long max, Collection<Long> container)
+    {
+        getPrimes(2,max,container);
+    }
+
+    public static void getPrimes (long start, long max, Collection<Long> container)
+    {
         for (long i = start;i<=max;i++) {
             if (isPrime(i)) {
-                primes.add(i);
+                container.add(i);
             }
         }
-        return primes;
     }
 
     public static long getNextPrime(long startVal)
