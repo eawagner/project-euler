@@ -1,10 +1,7 @@
 package practice.project.euler.util;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PrimeUtil {
 
@@ -32,10 +29,15 @@ public class PrimeUtil {
         return true;
     }
 
-    public static Set<Long> getPrimes(long max){
-        Set<Long> primes = new HashSet<Long>();
+    public static Collection<Long> getPrimes(long max){
+        return getPrimes(2,max);
+    }
 
-        for (long i = 2;i<=max;i++) {
+    public static Collection<Long> getPrimes(long start, long max)
+    {
+        Collection<Long> primes = new HashSet<Long>();
+
+        for (long i = start;i<=max;i++) {
             if (isPrime(i)) {
                 primes.add(i);
             }

@@ -35,4 +35,12 @@ public class StringUtil {
     public static int charToInt(char character) {
         return character - 48;
     }
+
+    public static boolean isPermutation(String original, String toCheck)
+    {
+        for (int i = 0;i<original.length();i++)
+            toCheck = toCheck.replaceFirst(Character.toString(original.charAt(i)),"");
+
+        return toCheck.length()==0;
+    }
 }

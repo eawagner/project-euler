@@ -1,4 +1,4 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 

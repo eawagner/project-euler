@@ -3,10 +3,7 @@ package practice.project.euler.util;
 
 import practice.project.euler.util.model.Tuple;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FactorUtil {
 
@@ -51,6 +48,39 @@ public class FactorUtil {
                 number/=prime;
             }
         }
+
+        return retVal;
+    }
+
+    public static Map<Long,Integer> getPrimeFactorization(long number, Collection<Long> primes)
+    {
+        Map<Long,Integer> retVal = new HashMap<Long, Integer>();
+
+        long toTest;
+        if (number<2)
+            return retVal;
+
+        for (long prime : primes) {
+            while (number%prime==0)
+            {
+                if (retVal.containsKey(prime))
+                    retVal.put(prime,retVal.get(prime)+1);
+                else
+                    retVal.put(prime,1);
+
+                number/=prime;
+            }
+            if (number == 1)
+                break;
+        }
+
+        //If the number is not 1 then there weren't enough primes to test it against
+        //so check it if was prime, otherwise simply return null for now.
+        if (number != 1)
+            if (PrimeUtil.isPrime(number))
+                retVal.put(number,1);
+            else
+                return null;
 
         return retVal;
     }
