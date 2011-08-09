@@ -11,6 +11,11 @@ public class StringUtil {
         return new StringBuffer(string).reverse().toString().equals(string);
     }
 
+    public static String reverse(String string)
+    {
+        return new StringBuffer(string).reverse().toString();
+    }
+
     public static int getSumOfDigits(String number)
     {
         int sum = 0;

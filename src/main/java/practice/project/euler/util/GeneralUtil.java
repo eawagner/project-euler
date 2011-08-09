@@ -3,6 +3,7 @@ package practice.project.euler.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.Collection;
 
 public class GeneralUtil {
@@ -21,15 +22,17 @@ public class GeneralUtil {
         return retVal;
     }
 
-    public static long getFactorial(int num)
+    public static BigInteger getFactorial(int num)
     {
-        long retVal = 1;
+        BigInteger retVal = new BigInteger("1");
 
-        for (int i= 2;i<=num;i++)
-            retVal*=i;
+        for (int i = 2;i<=num;i++)
+            retVal = retVal.multiply(new BigInteger(Integer.toString(i)));
 
         return retVal;
     }
+
+
 
     public static boolean isTriangleNumber(long num) {
         double tmp = (Math.sqrt(1 + 8 * num) - 1) / 2;

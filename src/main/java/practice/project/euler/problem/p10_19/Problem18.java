@@ -4,7 +4,8 @@ import practice.project.euler.Problem;
 import practice.project.euler.util.GeneralUtil;
 import practice.project.euler.util.model.Tuple;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

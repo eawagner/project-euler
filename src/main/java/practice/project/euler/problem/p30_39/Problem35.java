@@ -4,7 +4,6 @@ import practice.project.euler.Problem;
 import practice.project.euler.util.PrimeUtil;
 
 import java.util.Collection;
-import java.util.Set;
 
 /*
 The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.

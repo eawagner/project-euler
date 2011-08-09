@@ -5,7 +5,6 @@ import practice.project.euler.util.FactorUtil;
 import practice.project.euler.util.PrimeUtil;
 
 import java.util.Collection;
-import java.util.Collections;
 
 /*
 The first two consecutive numbers to have two distinct prime factors are:

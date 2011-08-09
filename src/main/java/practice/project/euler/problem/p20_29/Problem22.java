@@ -3,7 +3,6 @@ package practice.project.euler.problem.p20_29;
 import practice.project.euler.Problem;
 import practice.project.euler.util.GeneralUtil;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
 

@@ -3,8 +3,6 @@ package practice.project.euler.problem.p30_39;
 import practice.project.euler.Problem;
 import practice.project.euler.util.StringUtil;
 
-import javax.swing.plaf.metal.MetalBorders;
-
 /*
 Take the number 192 and multiply it by each of 1, 2, and 3:
 
