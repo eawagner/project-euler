@@ -1,16 +1,31 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.StringUtil;
 
-/**
- * Created by IntelliJ IDEA.
- * User: ewagner
- * Date: 8/9/11
- * Time: 2:36 PM
- * To change this template use File | Settings | File Templates.
+import java.math.BigInteger;
+
+/*
+A googol (10^100) is a massive number: one followed by one-hundred zeros; 100100 is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only 1.
+
+Considering natural numbers of the form, ab, where a, b < 100, what is the maximum digital sum?
+
  */
 public class Problem56 implements Problem{
     public String getAnswer() throws Exception {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+
+        int max = 0;
+        BigInteger inc = new BigInteger("1");
+        BigInteger min = new BigInteger("95");
+
+        for (BigInteger a = new BigInteger("99");a.compareTo(min)>0;a = a.subtract(inc))
+            for (int b = 99;b>90;b--) {
+                int sum = StringUtil.getSumOfDigits(a.pow(b).toString());
+                if (sum > max)
+                    max = sum;
+            }
+
+
+        return Integer.toString(max);
     }
 }

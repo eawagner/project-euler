@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        Problem problem = new Problem55();
+        Problem problem = new Problem56();
         long startTime=System.currentTimeMillis();
         try {
             System.out.println(problem.getAnswer());
