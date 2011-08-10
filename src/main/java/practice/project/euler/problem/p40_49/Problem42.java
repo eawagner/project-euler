@@ -2,6 +2,7 @@ package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 import practice.project.euler.util.GeneralUtil;
+import practice.project.euler.util.PolygonNumUtil;
 
 /*
 The nth term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
@@ -22,7 +23,7 @@ public class Problem42 implements Problem{
             for (int i = 0;i<name.length();i++)
                 sum+=name.charAt(i)-64;
 
-            if (GeneralUtil.isTriangleNumber(sum))
+            if (PolygonNumUtil.isPolyagonalNumber(3,sum))
                 retVal++;
 
         }

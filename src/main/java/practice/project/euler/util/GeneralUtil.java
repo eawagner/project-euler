@@ -34,13 +34,5 @@ public class GeneralUtil {
 
 
 
-    public static boolean isTriangleNumber(long num) {
-        double tmp = (Math.sqrt(1 + 8 * num) - 1) / 2;
-        return (int)tmp == tmp;
-    }
 
-    public static boolean isPentagonalNumber(long num) {
-        double tmp = (1 + Math.sqrt(1 + 24 * num)) / 6;
-        return (int)tmp == tmp;
-    }
 }

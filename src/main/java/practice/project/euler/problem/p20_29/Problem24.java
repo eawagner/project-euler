@@ -42,8 +42,5 @@ public class Problem24 implements Problem{
                 setPermutations(currString + Integer.toString(i),available,permutations,maxPermutations);
                 available[i] = true;
             }
-
-
-
     }
 }

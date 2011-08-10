@@ -1,12 +1,11 @@
 package practice.project.euler.util;
 
-
 import java.util.Collection;
 import java.util.HashSet;
 
 public class PrimeUtil {
 
-    public static boolean isPrime(Long test)
+    public static boolean isPrime(long test)
     {
         if (test < 2)
             return false;
@@ -28,6 +27,21 @@ public class PrimeUtil {
                 i+=6;
 
         return true;
+    }
+
+    public static boolean isPrime(long test, Collection<Long> primes){
+        if (test < 2)
+            return false;
+
+        for (Long prime : primes)
+        {
+            if (prime * prime > test)
+                return true;
+            if (test%prime == 0)
+                return false;
+        }
+        //Return false here is better than false true if collection is not big enough
+        return false;
     }
 
     public static Collection<Long> getPrimes(long max){
@@ -68,4 +82,44 @@ public class PrimeUtil {
             if (isPrime(i))
                 return i;
     }
+
+    public static boolean isPrimeMillerRabin(int n) {
+        if (n<2)
+            return false;
+        else if (n==2)
+            return true;
+        else
+            return (millerRabinPass(2,n) &&
+                (n<=7 || millerRabinPass(7,n)) &&
+                (n<=61 || millerRabinPass(61,n)));
+
+    }
+
+    private static boolean millerRabinPass(int a, int n) {
+        int d = n-1;
+        int s = Integer.numberOfTrailingZeros(d);
+        d >>= s;
+
+        int a_to_power = modular_exponent(a,d,n);
+        if (a_to_power == 1 || a_to_power == n-1)
+            return true;
+
+        for (int i = 0; i<s-1 ; i++) {
+            a_to_power = modular_exponent(a_to_power,2,n);
+            if (a_to_power == n-1)
+                return true;
+        }
+        return false;
+    }
+
+    private static int modular_exponent(int base, int power, int modulus) {
+        long result = 1;
+        for (int i = 31;i>=0;i--) {
+            result = (result*result) % modulus;
+            if ((power & (1<<i)) !=0)
+                result = (result*base) % modulus;
+        }
+        return (int)result;
+    }
+
 }
