@@ -15,10 +15,9 @@ public class Problem56 implements Problem{
     public String getAnswer() throws Exception {
 
         int max = 0;
-        BigInteger inc = new BigInteger("1");
         BigInteger min = new BigInteger("95");
 
-        for (BigInteger a = new BigInteger("99");a.compareTo(min)>0;a = a.subtract(inc))
+        for (BigInteger a = new BigInteger("99");a.compareTo(min)>0;a = a.subtract(BigInteger.ONE))
             for (int b = 99;b>90;b--) {
                 int sum = StringUtil.getSumOfDigits(a.pow(b).toString());
                 if (sum > max)

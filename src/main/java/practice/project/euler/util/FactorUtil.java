@@ -85,23 +85,6 @@ public class FactorUtil {
         return retVal;
     }
 
-    public static Tuple<Long,Long> reduceFraction(long numerator, long denominator) {
-        Map<Long, Integer> numFactors = getPrimeFactorization(numerator);
-        Map<Long, Integer> denFactors = getPrimeFactorization(denominator);
 
-        for (Map.Entry<Long,Integer> factor : numFactors.entrySet()) {
-            int numDivisions = (
-                    numFactors.get(factor.getKey())>denFactors.get(factor.getKey())
-                            ?denFactors.get(factor.getKey()):numFactors.get(factor.getKey()));
-
-            for (int i = 0;i<numDivisions;i++)
-            {
-                numerator /= factor.getKey();
-                denominator /= factor.getKey();
-            }
-        }
-
-        return new Tuple<Long, Long>(numerator,denominator);
-    }
 
 }

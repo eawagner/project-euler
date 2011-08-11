@@ -2,6 +2,8 @@ package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
 import practice.project.euler.util.FactorUtil;
+import practice.project.euler.util.FractionUtil;
+import practice.project.euler.util.model.Tuple;
 
 /*
 The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
@@ -48,6 +50,6 @@ public class Problem33 implements Problem{
             }
 
 
-        return FactorUtil.reduceFraction(retNum,retDen).getValue2().toString();
+        return FractionUtil.reduceFraction(new Tuple<Long, Long>(retNum,retDen)).getValue2().toString();
     }
 }

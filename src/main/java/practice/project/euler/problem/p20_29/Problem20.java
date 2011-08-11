@@ -17,7 +17,7 @@ Find the sum of the digits in the number 100!
 public class Problem20 implements Problem{
     public String getAnswer() {
 
-        BigInteger factorial = new BigInteger("1");
+        BigInteger factorial = BigInteger.ONE;
 
         for (int i = 2;i<101;i++)
             factorial = factorial.multiply(new BigInteger(Integer.toString(i)));

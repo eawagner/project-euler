@@ -24,7 +24,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 public class Problem57 implements Problem{
     public String getAnswer() throws Exception {
 
-        BigInteger numerator = new BigInteger("1");
+        BigInteger numerator = BigInteger.ONE;
         BigInteger denominator = new BigInteger("2");
         int retVal = 0;
         for (int i = 1;i<1000;i++) {

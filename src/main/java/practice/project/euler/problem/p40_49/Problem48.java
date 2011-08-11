@@ -16,10 +16,10 @@ public class Problem48 implements Problem{
         //I was too lazy, but you really only need to keep track of the least significant digits.
         //Since the n < 1001 is small you can easily do this.  BigInt was just too easy and really fast.
 
-        BigInteger sum = new BigInteger("0");
+        BigInteger sum = BigInteger.ZERO;
         BigInteger end = new BigInteger("1001");
-        BigInteger increment = new BigInteger("1");
-        for (BigInteger n = new BigInteger("1");n.compareTo(end)<0;n = n.add(increment))
+
+        for (BigInteger n = BigInteger.ONE;n.compareTo(end)<0;n = n.add(BigInteger.ONE))
             sum = sum.add(n.pow(n.intValue()));
 
         String sumStr = sum.toString();

@@ -31,8 +31,8 @@ What is the first term in the Fibonacci sequence to contain 1000 digits?
  */
 public class Problem25 implements Problem{
     public String getAnswer() throws Exception {
-        BigInteger prev = new BigInteger("1");
-        BigInteger curr = new BigInteger("1");
+        BigInteger prev = BigInteger.ONE;
+        BigInteger curr = BigInteger.ONE;
         BigInteger tmp;
         int i = 2;
         while (curr.toString().length()<1000)
