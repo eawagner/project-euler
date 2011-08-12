@@ -1,6 +1,5 @@
 package practice.project.euler.problem;
 
-import practice.project.euler.Main;
 import practice.project.euler.Problem;
 
 /*

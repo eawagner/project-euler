@@ -1,8 +1,8 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FractionUtil;
-import practice.project.euler.util.model.Tuple;
+import practice.project.euler.util.StringUtil;
+import practice.project.euler.util.model.Fraction;
 
 /*
 The square root of 2 can be written as an infinite continued fraction.
@@ -91,20 +91,20 @@ Find the sum of digits in the numerator of the 100th convergent of the continued
 public class Problem65 implements Problem{
     public String getAnswer() throws Exception {
 
-        Tuple<Long,Long> fraction = new Tuple<Long, Long>(0L,1L);
+        Fraction fraction = new Fraction(0L,1L);
         for (int i = 99;i>0;i--)
         {
             if (i%3 == 2) {
-                fraction = FractionUtil.add(fraction,i/3 + 1);
+                fraction = fraction.add(2* (i/3 + 1));
             } else
-                fraction = FractionUtil.add(fraction,1);
+                fraction = fraction.add(1);
 
-            fraction = FractionUtil.invert(fraction);
+            fraction = fraction.invert();
         }
 
-        fraction = FractionUtil.add(fraction,2);
+        fraction = fraction.add(2);
 
 
-        return Long.toString(fraction.getValue1());
+        return Integer.toString(StringUtil.getSumOfDigits(fraction.getNumerator().toString()));
     }
 }

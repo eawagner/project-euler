@@ -1,8 +1,6 @@
 package practice.project.euler.util;
 
 
-import practice.project.euler.util.model.Tuple;
-
 import java.util.*;
 
 public class FactorUtil {

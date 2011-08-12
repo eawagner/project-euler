@@ -2,7 +2,6 @@ package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
 import practice.project.euler.util.GeneralUtil;
-import practice.project.euler.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -89,9 +89,9 @@ public class PrimeUtil {
         else if (n==2)
             return true;
         else
-            return (millerRabinPass(2,n) &&
-                (n<=7 || millerRabinPass(7,n)) &&
-                (n<=61 || millerRabinPass(61,n)));
+            return (millerRabinPass(2, n) &&
+                (n<=7 || millerRabinPass(7, n)) &&
+                (n<=61 || millerRabinPass(61, n)));
 
     }
 

@@ -1,7 +1,6 @@
 package practice.project.euler;
 
 import practice.project.euler.problem.*;
-import practice.project.euler.problem.p40_49.*;
 
 
 public class Main {

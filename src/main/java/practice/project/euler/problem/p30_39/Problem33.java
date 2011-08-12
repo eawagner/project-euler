@@ -1,7 +1,6 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
 import practice.project.euler.util.FractionUtil;
 import practice.project.euler.util.model.Tuple;
 

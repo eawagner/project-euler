@@ -1,16 +1,10 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 import practice.project.euler.util.model.Tuple;
-import sun.util.resources.LocaleNames_th;
 
-import java.io.InputStream;
-import java.lang.reflect.Array;
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /*
 The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 (3843) and 66430125 (4053). In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.

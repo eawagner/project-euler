@@ -50,4 +50,5 @@ public class FractionUtil {
     public static Tuple<Long,Long> invert(Tuple<Long,Long> fraction) {
         return new Tuple<Long, Long>(fraction.getValue2(), fraction.getValue1());
     }
+
 }

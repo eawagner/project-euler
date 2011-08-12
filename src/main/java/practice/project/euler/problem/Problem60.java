@@ -3,7 +3,8 @@ package practice.project.euler.problem;
 import practice.project.euler.Problem;
 import practice.project.euler.util.PrimeUtil;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 The primes 3, 7, 109, and 673, are quite remarkable. By taking any two primes and concatenating them in any order the result will always be prime. For example, taking 7 and 109, both 7109 and 1097 are prime. The sum of these four primes, 792, represents the lowest sum for a set of four primes with this property.
@@ -25,8 +26,8 @@ public class Problem60 implements Problem{
             long bOrder = 10;
             for (int b = 0;b<a;b++) {
                 if (indexedPrimes.get(b) > bOrder) bOrder *=10;
-                if (PrimeUtil.isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b),indexedPrimes) &&
-                        PrimeUtil.isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a),indexedPrimes))
+                if (PrimeUtil.isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b), indexedPrimes) &&
+                        PrimeUtil.isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes))
                 {
                     pairs[a][b] = true;
                     pairs[b][a] = true;
