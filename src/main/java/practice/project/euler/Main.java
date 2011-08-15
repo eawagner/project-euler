@@ -1,8 +1,6 @@
 package practice.project.euler;
 
-import practice.project.euler.problem.*;
-import practice.project.euler.problem.p10_19.Problem18;
-import practice.project.euler.problem.p30_39.Problem33;
+import practice.project.euler.problem.Problem70;
 
 
 public class Main {

@@ -1,10 +1,8 @@
 package practice.project.euler.util.model;
 
-import com.sun.org.apache.regexp.internal.REUtil;
-import sun.security.pkcs11.P11TlsKeyMaterialGenerator;
-
 import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,5 +1,7 @@
 package practice.project.euler.util;
 
+import java.util.Arrays;
+
 public class StringUtil {
 
     public static boolean isPalendrome(long number){
@@ -43,9 +45,11 @@ public class StringUtil {
 
     public static boolean isPermutation(String original, String toCheck)
     {
-        for (int i = 0;i<original.length();i++)
-            toCheck = toCheck.replaceFirst(Character.toString(original.charAt(i)),"");
+        byte [] origBytes = original.getBytes();
+        Arrays.sort(origBytes);
+        byte [] checkBytes = toCheck.getBytes();
+        Arrays.sort(checkBytes);
+        return Arrays.equals(origBytes, checkBytes);
 
-        return toCheck.length()==0;
     }
 }

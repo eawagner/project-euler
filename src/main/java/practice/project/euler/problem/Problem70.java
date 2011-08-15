@@ -19,7 +19,7 @@ public class Problem70 implements Problem{
 
 
 
-        double leaseFound = 1;
+        double leaseFound = 10;
         int retVal = 0;
         for (int n = 2;n<10000000;n++)
         {
@@ -27,6 +27,7 @@ public class Problem70 implements Problem{
 
             double ratio = n/(double)totient;
             if (ratio<leaseFound && StringUtil.isPermutation(Integer.toString(n), Long.toString(totient))) {
+                leaseFound = ratio;
                 retVal = n;
             }
 

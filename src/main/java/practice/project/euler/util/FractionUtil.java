@@ -2,8 +2,6 @@ package practice.project.euler.util;
 
 import practice.project.euler.util.model.Tuple;
 
-import java.util.Map;
-
 /**
  * Created by IntelliJ IDEA.
  * User: ewagner

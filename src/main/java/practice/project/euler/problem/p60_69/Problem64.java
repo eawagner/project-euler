@@ -1,7 +1,6 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.model.ContinuedFraction;
 
 /*
 All square roots are periodic when written as continued fractions and can be written in the form:

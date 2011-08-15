@@ -2,7 +2,6 @@ package practice.project.euler.problem.p10_19;
 
 import practice.project.euler.Problem;
 import practice.project.euler.util.GeneralUtil;
-import practice.project.euler.util.model.Tuple;
 
 import java.io.BufferedReader;
 import java.io.IOException;
