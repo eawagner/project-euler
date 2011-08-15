@@ -1,6 +1,9 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.model.ContinuedFraction;
+
+import java.math.BigInteger;
 
 /*
 
@@ -28,28 +31,32 @@ Find the value of D ≤ 1000 in minimal solutions of x for which the largest val
 public class Problem66 implements Problem{
     public String getAnswer() throws Exception {
 
-        long maxX = 0;
-        int retVal = 0;
-        for (int d = 2;d<=1000;d++) {
+        BigInteger maxX = BigInteger.ZERO;
+        int retVal = 3;
+        for (int d = 8;d<=1000;d++) {
             double tmp = Math.sqrt(d);
-            if (tmp == (int)tmp)
+            if (tmp == (long)tmp)
                 continue;
 
-            for (int y = 1;;y++)
-            {
-                double x = Math.sqrt((d * y * y) + 1);
-                if (x == (long)x) {
-                    if(x > maxX) {
-                        maxX = (long)x;
+            ContinuedFraction cf = ContinuedFraction.fromSquareRoot(d);
 
-                        retVal = d;
-                    }
-                    break;
-                }
+            BigInteger x;
+
+
+            if (cf.getPeriodLength() %2 == 0)
+                x = cf.expand(cf.getPeriodLength() - 1).getNumerator();
+            else
+                x = cf.expand(cf.getPeriodLength() * 2 - 1).getNumerator();
+
+            if (maxX.compareTo(x)<0)
+            {
+                maxX = x;
+                retVal = d;
             }
+
         }
 
+        return Integer.toString(retVal);
 
-        return Long.toString(maxX);
     }
 }

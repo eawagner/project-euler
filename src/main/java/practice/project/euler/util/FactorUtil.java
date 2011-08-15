@@ -83,6 +83,23 @@ public class FactorUtil {
         return retVal;
     }
 
+    public static long totientFunction(long num) {
+        long count = 0;
+        for (int i = 1;i<num;i++)
+            if (gcd(num,i) == 1)
+                count++;
 
+        return count;
+    }
+
+    public static long gcd(long a, long b) {
+        if (a<b)
+            return gcd(b,a);
+
+        if (a%b == 0)
+            return b;
+
+        return gcd(a%b,b);
+    }
 
 }

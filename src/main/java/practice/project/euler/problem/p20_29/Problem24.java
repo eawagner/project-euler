@@ -17,12 +17,11 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 public class Problem24 implements Problem{
     public String getAnswer() throws Exception {
 
-        boolean [] available = new boolean[10];
-        for (int i = 0;i<available.length;i++)
-            available[i] = true;
+        boolean [] used = new boolean[10];
+
 
         List<String> permutations = new ArrayList<String>(1000000);
-        setPermutations("",available,permutations,1000000);
+        setPermutations("",used,permutations,1000000);
 
 
         return permutations.get(permutations.size()-1);
@@ -36,11 +35,11 @@ public class Problem24 implements Problem{
         }
 
         for (int i = 0;i<10 && permutations.size()<maxPermutations;i++)
-            if (available[i]) {
+            if (!available[i]) {
 
-                available[i] = false;
-                setPermutations(currString + Integer.toString(i),available,permutations,maxPermutations);
                 available[i] = true;
+                setPermutations(currString + Integer.toString(i),available,permutations,maxPermutations);
+                available[i] = false;
             }
     }
 }

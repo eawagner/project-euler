@@ -27,11 +27,4 @@ public class Problem44 implements Problem{
         }
 
     }
-
-    private static long genPentagonalNumber(int n) {
-        return n * (3 * n - 1) / 2;
-    }
-
-
-
 }

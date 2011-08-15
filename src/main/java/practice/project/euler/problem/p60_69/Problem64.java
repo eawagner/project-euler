@@ -1,6 +1,7 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.model.ContinuedFraction;
 
 /*
 All square roots are periodic when written as continued fractions and can be written in the form:
@@ -130,6 +131,14 @@ public class Problem64 implements Problem{
 
         int retVal = 0;
         for (int i = 23;i<10001;i++) {
+            //originally used cf class but found faster solution
+//            ContinuedFraction cf = ContinuedFraction.fromSquareRoot(i);
+//            if (cf.getPeriodStart() < 0)
+//                continue;
+//
+//            if (cf.getPeriodLength() % 2 == 1)
+//                retVal++;
+
 
             double tmp = Math.sqrt(i);
             int root = (int)tmp;

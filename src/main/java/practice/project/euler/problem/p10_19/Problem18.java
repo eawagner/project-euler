@@ -47,7 +47,7 @@ public class Problem18 implements Problem{
 
     public static String solveMaxSum(String resourceFile)
     {
-        List<List<Tuple<Long,Long>>> cache = new ArrayList<List<Tuple<Long,Long>>>();
+        List<List<Long>> cache = new ArrayList<List<Long>>();
 
         try {
 
@@ -57,9 +57,9 @@ public class Problem18 implements Problem{
             {
 
                 String[] numbers = line.split(" ");
-                List<Tuple<Long,Long>> row = new ArrayList<Tuple<Long,Long>>(numbers.length);
+                List<Long> row = new ArrayList<Long>(numbers.length);
                 for (String number : numbers)
-                    row.add(new Tuple<Long, Long>(Long.parseLong(number),0L));
+                    row.add(Long.parseLong(number));
 
                 cache.add(row);
             }
@@ -68,26 +68,17 @@ public class Problem18 implements Problem{
             return "";
         }
 
-        return Long.toString(getMaxSum(0, 0, cache));
+        return Long.toString(getMaxSum(cache));
     }
 
-    private static long getMaxSum(int row, int idx, List<List<Tuple<Long,Long>>> cache)
-    {
-        if (row >= cache.size())
-            return 0;
-        long currVal = cache.get(row).get(idx).getValue1();
+    private static long getMaxSum(List<List<Long>> cache) {
+        for (int row = cache.size() - 2;row>= 0;row--)
+            for (int i = 0;i<cache.get(row).size();i++)
+                cache.get(row).set(i,
+                        cache.get(row).get(i) +
+                        (cache.get(row + 1).get(i) > cache.get(row + 1).get(i + 1)?cache.get(row + 1).get(i):cache.get(row + 1).get(i+1)));
 
-        long left = getMaxSum(row +1, idx, cache) ;
-        long right = getMaxSum(row +1, idx+1, cache) ;
-
-        if (left > right)
-            currVal += left;
-        else
-            currVal += right;
-
-        cache.get(row).get(idx).setValue2(currVal);
-
-        return currVal;
-
+        return cache.get(0).get(0);
     }
+
 }

@@ -4,13 +4,13 @@ package practice.project.euler;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import practice.project.euler.problem.*;
 import practice.project.euler.problem.p01_09.*;
 import practice.project.euler.problem.p10_19.*;
 import practice.project.euler.problem.p20_29.*;
 import practice.project.euler.problem.p30_39.*;
 import practice.project.euler.problem.p40_49.*;
 import practice.project.euler.problem.p50_59.*;
+import practice.project.euler.problem.p60_69.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -94,6 +94,10 @@ public class ProblemTester {
         problemAndResults.put(new Problem63(), "49");
         problemAndResults.put(new Problem64(), "1317");
         problemAndResults.put(new Problem65(), "272");
+        problemAndResults.put(new Problem66(), "661");
+        problemAndResults.put(new Problem67(), "7273");
+        problemAndResults.put(new Problem68(), "6531031914842725");
+        problemAndResults.put(new Problem69(), "510510");
     }
 
 

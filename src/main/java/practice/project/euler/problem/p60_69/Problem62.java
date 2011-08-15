@@ -1,4 +1,4 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
 import practice.project.euler.util.model.Tuple;

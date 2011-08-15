@@ -44,19 +44,5 @@ public class Problem47 implements Problem{
             num = num - i + 4;
         }
 
-//
-//
-//        for (int i = 644;;i++) {
-//
-//            if (FactorUtil.getPrimeFactorization(i,primes).size()==4)
-//                numConsecutive++;
-//            else
-//                numConsecutive=0;
-//
-//            if (numConsecutive==4)
-//                return Integer.toString(i-3);
-//        }
-
-
     }
 }

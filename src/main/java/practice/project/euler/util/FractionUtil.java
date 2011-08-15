@@ -17,22 +17,10 @@ public class FractionUtil {
     public static Tuple<Long,Long> reduceFraction(Tuple<Long,Long> fraction) {
         long numerator = fraction.getValue1();
         long denominator = fraction.getValue2();
-        Map<Long, Integer> numFactors = FactorUtil.getPrimeFactorization(numerator);
-        Map<Long, Integer> denFactors = FactorUtil.getPrimeFactorization(denominator);
 
-        for (Map.Entry<Long,Integer> factor : numFactors.entrySet()) {
-            int numDivisions = (
-                    numFactors.get(factor.getKey())>denFactors.get(factor.getKey())
-                            ?denFactors.get(factor.getKey()):numFactors.get(factor.getKey()));
+        long gcd = FactorUtil.gcd(numerator, denominator);
 
-            for (int i = 0;i<numDivisions;i++)
-            {
-                numerator /= factor.getKey();
-                denominator /= factor.getKey();
-            }
-        }
-
-        return new Tuple<Long, Long>(numerator,denominator);
+        return new Tuple<Long, Long>(numerator/gcd,denominator/gcd);
     }
 
     public static Tuple<Long,Long> add(Tuple<Long,Long> fraction1, Tuple<Long,Long> fraction2) {
