@@ -2,6 +2,9 @@ package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
 
+import java.util.Arrays;
+import java.util.List;
+
 /*
 In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
 
@@ -17,23 +20,19 @@ How many different ways can £2 be made using any number of coins?
 public class Problem31 implements Problem{
     public String getAnswer() throws Exception {
 
-        int[] denominations = new int[] {1,2,5,10,20,50,100,200};
+        Long[] tmp = new Long[] {1L,2L,5L,10L,20L,50L,100L,200L};
 
-        return Integer.toString(numCombinations(0, 0, denominations, 200));
+        return Integer.toString(count(200, tmp.length-1, Arrays.asList(tmp)));
     }
 
-    private int numCombinations(int currVal, int currIdx, int[] denominations, int desiredVal) {
-        if (currVal == desiredVal)
+    public static int count(int n, int m, List<Long>  values) {
+        if (n==0)
             return 1;
-
-        if (currVal > desiredVal || currIdx >= denominations.length)
+        else if (n<0)
+            return 0;
+        else if (m<0 && n>=1)
             return 0;
 
-        int retVal = 0;
-
-        for (int i = currVal; i<=desiredVal; i+= denominations[currIdx])
-            retVal+= numCombinations(i, currIdx + 1, denominations, desiredVal);
-
-        return retVal;
+        return count(n,m-1,values) + count(n-values.get(m).intValue(),m,values);
     }
 }

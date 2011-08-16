@@ -4,10 +4,7 @@ package practice.project.euler.util;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class GeneralUtil {
 
@@ -25,12 +22,12 @@ public class GeneralUtil {
         return retVal;
     }
 
-    public static BigInteger getFactorial(int num)
+    public static long getFactorial(int num)
     {
-        BigInteger retVal = new BigInteger("1");
+        long retVal = 1;
 
-        for (int i = 2;i<=num;i++)
-            retVal = retVal.multiply(new BigInteger(Integer.toString(i)));
+        for (int i= 2;i<=num;i++)
+            retVal*=i;
 
         return retVal;
     }
@@ -69,4 +66,49 @@ public class GeneralUtil {
 
     }
 
+    public static int[] genNumPythagoreanTrips(int maxP) {
+
+        int max = (int)Math.sqrt(maxP);
+        int [] pTrips = new int[maxP +1];
+        for (int m = 1;m<max;m+=2)
+            for (int n = 2;n<max-m;n+=2)
+                if (FactorUtil.gcd(m, n)==1) {
+                    int sum = Math.abs(m*m - n*n) + 2*m*n + m*m + n*n;
+                    for (int i = sum;i<=maxP;i+=sum)
+                        pTrips[i]+=1;
+                }
+
+        return pTrips;
+    }
+
+    public static long getNumParitions(long num, Map<Long,Long> cache) {
+
+        if (num==0)
+            return 1;
+        if (num<0)
+            return 0;
+
+        if (cache.containsKey(num))
+            return cache.get(num);
+
+        long retVal = 0;
+        int k = 1;
+        long pent = PolygonUtil.genPolyagonalNum(5,k);
+
+        while (pent<=num) {
+
+            int sign = (int)Math.pow(-1,k-1);
+
+            retVal+=sign * getNumParitions(num-pent,cache);
+            k*=-1;
+            if (k>0)
+                k++;
+
+            pent = PolygonUtil.genPolyagonalNum(5,k);
+
+        }
+
+        cache.put(num,retVal);
+        return retVal;
+    }
 }

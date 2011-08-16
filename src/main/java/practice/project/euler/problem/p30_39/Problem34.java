@@ -1,6 +1,7 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.GeneralUtil;
 import practice.project.euler.util.StringUtil;
 
 /*
@@ -21,16 +22,7 @@ public class Problem34 implements Problem{
 
         for (int i = 10;i<=max;i++)
         {
-            String num = Integer.toString(i);
-
-            long sum = 0;
-            for (int j = 0;j<num.length();j++) {
-                sum += cache[StringUtil.charToInt(num.charAt(j))];
-                if (sum > i)
-                    break;
-            }
-
-            if (sum == i)
+            if (i == getNextItem(i,cache))
                 retSum +=i;
         }
 
@@ -40,7 +32,7 @@ public class Problem34 implements Problem{
     private long findMax()
     {
         int numDigits = 1;
-        long valPerDig = getFactorial(9);
+        long valPerDig = GeneralUtil.getFactorial(9);
         while (Math.pow(10,numDigits) < numDigits * valPerDig)
             numDigits++;
 
@@ -48,23 +40,24 @@ public class Problem34 implements Problem{
 
     }
 
-    private int[] getDigitFactorials()
+    public static int[] getDigitFactorials()
     {
         int [] retVal = new int[10];
         for (int i = 0;i<retVal.length;i++)
-            retVal[i] = (int)getFactorial(i);
+            retVal[i] = (int) GeneralUtil.getFactorial(i);
 
         return retVal;
     }
 
-
-    public static long getFactorial(int num)
-    {
-        long retVal = 1;
-
-        for (int i= 2;i<=num;i++)
-            retVal*=i;
-
+    public static int getNextItem(int num, int []digitFactorials) {
+        int retVal = 0;
+        while (num > 0) {
+            retVal += digitFactorials[num%10];
+            num /=10;
+        }
         return retVal;
     }
+
+
+
 }
