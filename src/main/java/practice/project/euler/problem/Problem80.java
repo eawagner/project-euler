@@ -1,6 +1,10 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
+import practice.project.euler.util.StringUtil;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
 
 /*
 It is well known that if the square root of a natural number is not an integer, then it is irrational. The decimal expansion of such square roots is infinite without any repeating pattern at all.
@@ -11,7 +15,36 @@ For the first one hundred natural numbers, find the total of the digital sums of
 
  */
 public class Problem80 implements Problem{
+
+    BigDecimal two = new BigDecimal(2);
+
     public String getAnswer() throws Exception {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+
+        long retVal = 0;
+        for (int i = 2;i<=100;i++) {
+            double tmp = Math.sqrt(i);
+            if (tmp == (int)tmp)
+                continue;
+
+            BigDecimal s = new BigDecimal(i);
+            BigDecimal prev;
+            BigDecimal curr = refine(new BigDecimal(tmp), s);
+
+            do {
+                prev = curr;
+                curr = refine(curr,s);
+            } while(curr.compareTo(prev)!=0);
+
+            String number = curr.toPlainString().replace(".","").substring(0,100);
+
+            retVal += StringUtil.getSumOfDigits(number);
+        }
+
+
+        return Long.toString(retVal);
+    }
+
+    private BigDecimal refine(BigDecimal guess, BigDecimal s) {
+        return s.divide(guess,101,BigDecimal.ROUND_HALF_UP).add(guess).divide(two,101,BigDecimal.ROUND_HALF_UP);
     }
 }

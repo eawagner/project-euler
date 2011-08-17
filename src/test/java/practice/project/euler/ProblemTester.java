@@ -4,6 +4,7 @@ package practice.project.euler;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import practice.project.euler.problem.Problem80;
 import practice.project.euler.problem.p01_09.*;
 import practice.project.euler.problem.p10_19.*;
 import practice.project.euler.problem.p20_29.*;
@@ -110,6 +111,8 @@ public class ProblemTester {
         problemAndResults.put(new Problem77(), "71");
         problemAndResults.put(new Problem78(), "55374");
         problemAndResults.put(new Problem79(), "73162890");
+
+        problemAndResults.put(new Problem80(), "40886");
     }
 
 
