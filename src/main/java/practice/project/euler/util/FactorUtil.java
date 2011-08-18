@@ -92,14 +92,42 @@ public class FactorUtil {
         return count;
     }
 
+    public static long totientFunction(long num, Collection<Long> primes)
+    {
+        long retVal = num;
+        for (Long factor : getPrimeFactorization(num,primes).keySet()) {
+            retVal *= (factor-1);
+            retVal /= factor;
+        }
+        return retVal;
+
+    }
+
     public static long gcd(long a, long b) {
-        if (a<b)
-            return gcd(b,a);
 
-        if (a%b == 0)
-            return b;
+//        if (a<b)
+//            return gcd(b,a);
+//
+//        if (a%b == 0)
+//            return b;
+//
+//        return gcd(a%b,b);
 
-        return gcd(a%b,b);
+//        while (b!=0) {
+//            a%=b;
+//            if (a==0)
+//                return b;
+//            b%=a;
+//        }
+//        return a;
+        //slightly faster.
+        long tmp;
+        while (a>0) {
+            tmp = b%a;
+            b = a;
+            a=tmp;
+        }
+        return b;
     }
 
 }

@@ -1,8 +1,10 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
+import practice.project.euler.util.PrimeUtil;
 import practice.project.euler.util.StringUtil;
+
+import java.util.ArrayList;
 
 /*
 Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of positive numbers less than or equal to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.
@@ -17,22 +19,30 @@ public class Problem70 implements Problem{
     public String getAnswer() throws Exception {
 
 
+        ArrayList<Long> primes = new ArrayList<Long>();
+        PrimeUtil.getPrimes(4000, primes); //4000 choosen later after solution was found
 
 
         double leaseFound = 10;
-        int retVal = 0;
-        for (int n = 2;n<10000000;n++)
-        {
-            long totient = FactorUtil.totientFunction(n);
-
-            double ratio = n/(double)totient;
-            if (ratio<leaseFound && StringUtil.isPermutation(Integer.toString(n), Long.toString(totient))) {
-                leaseFound = ratio;
-                retVal = n;
+        long retVal = 0;
+        //solution was based on premise that in order to minimize n/φ(n) we have to maximize φ(n).
+        //This mean to include as few primes as possible.  Since no primes fit the permutation property,
+        //I used 2 primes.  Reading about RSA you will find that in order to calculate the totient for 2
+        //primes it is simply (p-1)(q-1) for primes q and p.
+        for (int i = 0;i< primes.size() - 1;i++)
+            for (int j = i+1;j<primes.size();j++)
+            {
+                long totient = (primes.get(i) - 1) * (primes.get(j)-1);
+                long num = primes.get(i) * primes.get(j);
+                if (num > 10000000)
+                    break;
+                double ratio = (num)/(double)totient;
+                if (ratio<leaseFound && StringUtil.isPermutation(Long.toString(num), Long.toString(totient))) {
+                    leaseFound = ratio;
+                    retVal = num;
+                }
             }
 
-
-        }
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Long.toString(retVal);
     }
 }

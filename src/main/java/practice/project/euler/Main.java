@@ -1,13 +1,13 @@
 package practice.project.euler;
 
-import practice.project.euler.problem.Problem70;
+import practice.project.euler.problem.*;
 
 
 public class Main {
 
     public static void main(String[] args){
 
-        Problem problem = new Problem70();
+        Problem problem = new Problem73();
         long startTime=System.currentTimeMillis();
         try {
             System.out.println(problem.getAnswer());
