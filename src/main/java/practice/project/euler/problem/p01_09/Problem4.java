@@ -26,6 +26,6 @@ public class Problem4 implements Problem{
             }
 
 
-        return Long.toString(largest);  //To change body of implemented methods use File | Settings | File Templates.
+        return Long.toString(largest);
     }
 }

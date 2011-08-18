@@ -20,7 +20,7 @@ public class Problem41 implements Problem {
                 if (PrimeUtil.isPrime(Long.parseLong(pandigital)))
                     return pandigital;
 
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return null;
     }
 
     private static Collection<String> getPandigitals (int numDigits)

@@ -17,6 +17,6 @@ public class Problem5 implements Problem{
             for (int pow = 1;Math.pow(prime,pow)<20;pow++)
                 product*=prime;
 
-        return Long.toString(product);  //To change body of implemented methods use File | Settings | File Templates.
+        return Long.toString(product);
     }
 }

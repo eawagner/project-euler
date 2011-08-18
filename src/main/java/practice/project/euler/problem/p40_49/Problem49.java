@@ -28,6 +28,6 @@ public class Problem49 implements Problem{
                     return Long.toString(prime) + Long.toString(prime+i) + Long.toString(prime+i*2);
         }
 
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return null;
     }
 }

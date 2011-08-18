@@ -39,7 +39,7 @@ public class Problem79 implements Problem{
             nums = removeCand(cand,nums);
         }
 
-        return retVal;  //To change body of implemented methods use File | Settings | File Templates.
+        return retVal;
     }
 
     private static boolean checkLater(String toCheck, Collection<String> nums) {

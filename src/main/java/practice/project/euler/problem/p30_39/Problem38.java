@@ -45,6 +45,6 @@ public class Problem38 implements Problem{
             }
         }
 
-        return retVal;  //To change body of implemented methods use File | Settings | File Templates.
+        return retVal;
     }
 }

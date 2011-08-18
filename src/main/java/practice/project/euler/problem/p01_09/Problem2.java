@@ -27,6 +27,6 @@ public class Problem2 implements Problem{
 
 
 
-        return Long.toString(retVal);  //To change body of implemented methods use File | Settings | File Templates.
+        return Long.toString(retVal);
     }
 }
