@@ -4,7 +4,6 @@ package practice.project.euler;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import practice.project.euler.problem.*;
 import practice.project.euler.problem.p01_09.*;
 import practice.project.euler.problem.p10_19.*;
 import practice.project.euler.problem.p20_29.*;
@@ -12,6 +11,7 @@ import practice.project.euler.problem.p30_39.*;
 import practice.project.euler.problem.p40_49.*;
 import practice.project.euler.problem.p50_59.*;
 import practice.project.euler.problem.p60_69.*;
+import practice.project.euler.problem.p70_79.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -108,6 +108,8 @@ public class ProblemTester {
         problemAndResults.put(new Problem75(), "161667");
         problemAndResults.put(new Problem76(), "190569291");
         problemAndResults.put(new Problem77(), "71");
+        problemAndResults.put(new Problem78(), "55374");
+        problemAndResults.put(new Problem79(), "73162890");
     }
 
 
