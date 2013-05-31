@@ -20,28 +20,29 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
  */
 public class Problem43 implements Problem{
     public String getAnswer() throws Exception {
+
         boolean [] used = new boolean[10];
 
-        return Long.toString(getPandigitalwithStrDiv("",used));
+        return Long.toString(getPandigitalwithStrDiv("",used, new long[] {2, 3, 5, 7, 11, 13, 17}));
     }
 
-    private static long getPandigitalwithStrDiv(String current, boolean[] used) {
+    private static long getPandigitalwithStrDiv(String current, boolean[] used, long[] primes) {
+
+        //Check that the last 4 digits are divisible by correct prime during each recursion.
+        //This will allow quicker exits if while constructing the number one of the lower digit combinations
+        //does not satisfy the divisibility check.
+        if (current.length() > 3 &&
+                Integer.parseInt(current.substring(current.length() - 3)) % primes[current.length() - 4] != 0)
+            return 0;
+
         if (current.length() == 10)
-            if (Integer.parseInt(current.substring(1,4))%2 == 0 &&
-                    Integer.parseInt(current.substring(2,5))%3 == 0 &&
-                    Integer.parseInt(current.substring(3,6))%5 == 0 &&
-                    Integer.parseInt(current.substring(4,7))%7 == 0 &&
-                    Integer.parseInt(current.substring(5,8))%11 == 0 &&
-                    Integer.parseInt(current.substring(6,9))%13 == 0 &&
-                    Integer.parseInt(current.substring(7,10))%17 == 0)
-                return Long.parseLong(current);
-            else return 0;
+            return Long.parseLong(current);
 
         long retVal = 0;
         for (int i = 0;i<10;i++)
             if (!used[i]) {
                 used[i] = true;
-                retVal += getPandigitalwithStrDiv(current + i, used);
+                retVal += getPandigitalwithStrDiv(current + i, used, primes);
                 used[i] = false;
             }
 

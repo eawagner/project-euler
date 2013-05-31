@@ -25,7 +25,9 @@ public class Problem60 implements Problem{
                 aOrder *=10;
             long bOrder = 10;
             for (int b = 0;b<a;b++) {
-                if (indexedPrimes.get(b) > bOrder) bOrder *=10;
+                if (indexedPrimes.get(b) > bOrder)
+                    bOrder *=10;
+
                 if (PrimeUtil.isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b), indexedPrimes) &&
                         PrimeUtil.isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes))
                 {
