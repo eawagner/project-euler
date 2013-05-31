@@ -2,6 +2,7 @@ package practice.project.euler.util;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class PrimeUtil {
 
@@ -50,23 +51,24 @@ public class PrimeUtil {
 
     public static Collection<Long> getPrimes(long start, long max)
     {
-        Collection<Long> primes = new HashSet<Long>();
+        Collection<Long> primes = new LinkedHashSet<Long>();
         getPrimes(start,max,primes);
         return primes;
     }
 
-    public static void getPrimes (long max, Collection<Long> container)
+    public static Collection<Long> getPrimes (long max, Collection<Long> container)
     {
-        getPrimes(2,max,container);
+        return getPrimes(2,max,container);
     }
 
-    public static void getPrimes (long start, long max, Collection<Long> container)
+    public static Collection<Long> getPrimes (long start, long max, Collection<Long> container)
     {
         for (long i = start;i<=max;i++) {
             if (isPrime(i)) {
                 container.add(i);
             }
         }
+        return container;
     }
 
     public static long getNextPrime(long startVal)
