@@ -5,6 +5,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import practice.project.euler.problem.Problem80;
+import practice.project.euler.problem.Problem81;
+import practice.project.euler.problem.Problem82;
+import practice.project.euler.problem.Problem83;
 import practice.project.euler.problem.p01_09.*;
 import practice.project.euler.problem.p10_19.*;
 import practice.project.euler.problem.p20_29.*;
@@ -113,6 +116,10 @@ public class ProblemTester {
         problemAndResults.put(new Problem79(), "73162890");
 
         problemAndResults.put(new Problem80(), "40886");
+        problemAndResults.put(new Problem81(), "427337");
+        problemAndResults.put(new Problem82(), "260324");
+        problemAndResults.put(new Problem83(), "425185");
+
     }
 
 

@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        Problem problem = new Problem81();
+        Problem problem = new Problem83();
         long startTime=System.currentTimeMillis();
         try {
             System.out.println(problem.getAnswer());
@@ -15,6 +15,7 @@ public class Main {
         } catch (Throwable th)
         {
             System.out.println("Error: "+th.getMessage());
+            th.printStackTrace();
         }
         long runTime=System.currentTimeMillis()-startTime;
 
