@@ -1,12 +1,14 @@
 package practice.project.euler.problem.p10_19;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Long.parseLong;
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
@@ -50,7 +52,7 @@ public class Problem18 implements Problem{
 
         try {
 
-            BufferedReader reader = GeneralUtil.getResource(resourceFile);
+            BufferedReader reader = getResource(resourceFile);
             String line;
             while ((line = reader.readLine())!=null)
             {
@@ -58,7 +60,7 @@ public class Problem18 implements Problem{
                 String[] numbers = line.split(" ");
                 List<Long> row = new ArrayList<Long>(numbers.length);
                 for (String number : numbers)
-                    row.add(Long.parseLong(number));
+                    row.add(parseLong(number));
 
                 cache.add(row);
             }
@@ -75,7 +77,7 @@ public class Problem18 implements Problem{
             for (int i = 0;i<cache.get(row).size();i++)
                 cache.get(row).set(i,
                         cache.get(row).get(i) +
-                        (cache.get(row + 1).get(i) > cache.get(row + 1).get(i + 1)?cache.get(row + 1).get(i):cache.get(row + 1).get(i+1)));
+                        (cache.get(row + 1).get(i) > cache.get(row + 1).get(i + 1) ? cache.get(row + 1).get(i) : cache.get(row + 1).get(i+1)));
 
         return cache.get(0).get(0);
     }

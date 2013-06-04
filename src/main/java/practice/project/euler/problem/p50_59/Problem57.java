@@ -4,6 +4,8 @@ import practice.project.euler.Problem;
 
 import java.math.BigInteger;
 
+import static java.math.BigInteger.ONE;
+
 /*
 It is possible to show that the square root of two can be expressed as an infinite continued fraction.
 
@@ -24,7 +26,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 public class Problem57 implements Problem{
     public String getAnswer() throws Exception {
 
-        BigInteger numerator = BigInteger.ONE;
+        BigInteger numerator = ONE;
         BigInteger denominator = new BigInteger("2");
         int retVal = 0;
         for (int i = 1;i<1000;i++) {

@@ -1,7 +1,10 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static java.lang.Long.parseLong;
+import static practice.project.euler.util.PrimeUtil.getNextPrime;
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 By replacing the 1st digit of *3, it turns out that six of the nine possible values: 13, 23, 43, 53, 73, and 83, are all prime.
@@ -13,7 +16,7 @@ Find the smallest prime which, by replacing part of the number (not necessarily 
 public class Problem51 implements Problem{
     public String getAnswer() throws Exception {
 
-        long prime = PrimeUtil.getNextPrime(56003);
+        long prime = getNextPrime(56003);
 
         while (prime < 200000)
         {
@@ -29,7 +32,7 @@ public class Problem51 implements Problem{
                                 continue;
 
 
-                            if (PrimeUtil.isPrime(Long.parseLong(primeStr.replace(Integer.toString(i), Integer.toString(j))))) {
+                            if (isPrime(parseLong(primeStr.replace(Integer.toString(i), Integer.toString(j))))) {
                                 numPrimes++;
                                 if (numPrimes==8)
                                     return primeStr;
@@ -37,10 +40,7 @@ public class Problem51 implements Problem{
                         }
             }
 
-
-
-        prime = PrimeUtil.getNextPrime(prime);
-
+        prime = getNextPrime(prime);
     }
     return null;
 }

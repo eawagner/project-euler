@@ -1,10 +1,12 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static practice.project.euler.util.PrimeUtil.getPrimes;
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 The primes 3, 7, 109, and 673, are quite remarkable. By taking any two primes and concatenating them in any order the result will always be prime. For example, taking 7 and 109, both 7109 and 1097 are prime. The sum of these four primes, 792, represents the lowest sum for a set of four primes with this property.
@@ -16,7 +18,7 @@ public class Problem60 implements Problem{
     public String getAnswer() throws Exception {
 
         List<Long> indexedPrimes = new ArrayList<Long>();
-        PrimeUtil.getPrimes(10000,indexedPrimes);
+        getPrimes(10000, indexedPrimes);
         boolean pairs[][] = new boolean[indexedPrimes.size()][indexedPrimes.size()];
 
         long aOrder = 10;
@@ -28,8 +30,8 @@ public class Problem60 implements Problem{
                 if (indexedPrimes.get(b) > bOrder)
                     bOrder *=10;
 
-                if (PrimeUtil.isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b), indexedPrimes) &&
-                        PrimeUtil.isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes))
+                if (isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b), indexedPrimes) &&
+                        isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes))
                 {
                     pairs[a][b] = true;
                     pairs[b][a] = true;
@@ -51,7 +53,6 @@ public class Problem60 implements Problem{
             }
 
         }
-
 
         return null;
     }

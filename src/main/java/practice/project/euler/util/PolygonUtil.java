@@ -1,5 +1,7 @@
 package practice.project.euler.util;
 
+import static java.lang.Math.sqrt;
+
 /*
 Triangle 	  	P3,n=n(n+1)/2 	  	1, 3, 6, 10, 15, ...
 Square 	  	P4,n=n2 	  	1, 4, 9, 16, 25, ...
@@ -19,7 +21,7 @@ public class PolygonUtil {
     }
 
     public static double getPolyagonalN(int p, long number) {
-        return (Math.sqrt( (p-4) * (p-4) + (number * (8*p - 16 ))) + p - 4) / (2 * p - 4);
+        return (sqrt((p - 4) * (p - 4) + (number * (8 * p - 16))) + p - 4) / (2 * p - 4);
     }
 
     public static long genPolyagonalNum(int p, long n) {

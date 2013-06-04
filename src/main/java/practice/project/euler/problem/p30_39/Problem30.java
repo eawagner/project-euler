@@ -1,7 +1,9 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
+
+import static java.lang.Math.pow;
+import static practice.project.euler.util.StringUtil.charToInt;
 
 /*
 Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
@@ -26,7 +28,7 @@ public class Problem30 implements Problem{
             int sum = 0;
             String tmp = Integer.toString(i);
             for (int j = 0; j<tmp.length();j++)
-                sum += (int)Math.pow(StringUtil.charToInt(tmp.charAt(j)),5);
+                sum += (int) pow(charToInt(tmp.charAt(j)), 5);
 
             if (sum == i)
                 retVal += i;
@@ -43,8 +45,8 @@ public class Problem30 implements Problem{
      */
     private int findMax(int power){
         int numDigits = 1;
-        int valPerDig = (int)Math.pow(9,power);
-        while (Math.pow(10,numDigits) < numDigits * valPerDig)
+        int valPerDig = (int) pow(9, power);
+        while (pow(10, numDigits) < numDigits * valPerDig)
             numDigits++;
 
         return numDigits*valPerDig;

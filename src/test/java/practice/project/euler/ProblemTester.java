@@ -17,6 +17,8 @@ import practice.project.euler.problem.p70_79.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static java.lang.System.currentTimeMillis;
+
 public class ProblemTester {
 
 
@@ -126,9 +128,9 @@ public class ProblemTester {
         long total = 0;
         for (Map.Entry<Problem,String> problems : problemAndResults.entrySet())
         {
-            long startProblemTime=System.currentTimeMillis();
+            long startProblemTime= currentTimeMillis();
             Assert.assertEquals(problems.getValue(),problems.getKey().getAnswer());
-            long problemRunTime=System.currentTimeMillis() - startProblemTime;
+            long problemRunTime= currentTimeMillis() - startProblemTime;
             Assert.assertTrue("Problem ran longer than 2 minutes, needs optimization", problemRunTime < 120000);
 
             total+=problemRunTime;
@@ -137,7 +139,7 @@ public class ProblemTester {
         }
         System.out.println();
         System.out.println("Total runtime: " + total);
-        System.out.println("Average runtime: " + total/problemAndResults.entrySet().size());
+        System.out.println("Average runtime: " + total / problemAndResults.entrySet().size());
     }
 
 }

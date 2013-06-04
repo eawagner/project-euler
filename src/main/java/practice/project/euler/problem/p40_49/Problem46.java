@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.
@@ -25,20 +26,18 @@ public class Problem46 implements Problem{
 
         while (true) {
             composite +=2;
-            while (PrimeUtil.isPrime(composite))
+            while (isPrime(composite))
                 composite+=2;
 
             boolean found = false;
             for (int i = 1;i*i*2<composite && !found;i++)
             {
-                if (PrimeUtil.isPrime(composite - (i*i*2)))
+                if (isPrime(composite - (i * i * 2)))
                     found = true;
             }
 
             if (!found)
                 return Long.toString(composite);
-
-
 
         }
 

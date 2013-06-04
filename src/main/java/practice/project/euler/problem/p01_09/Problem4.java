@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p01_09;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
+
+import static practice.project.euler.util.StringUtil.isPalendrome;
 
 /*
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -21,7 +22,7 @@ public class Problem4 implements Problem{
                 if (product<largest)
                     break;
 
-                if (StringUtil.isPalendrome(product))
+                if (isPalendrome(product))
                     largest = product;
             }
 

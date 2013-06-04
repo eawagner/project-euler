@@ -27,7 +27,6 @@ public class Problem14 implements Problem{
         //Keep previously computed chains in array cache.
         int[] chains = new int[1000000];
         int chainlen;
-        int currVal;
 
         chains[0] = 1;
         for (int i = 2;i<1000000;i++)
@@ -55,7 +54,7 @@ public class Problem14 implements Problem{
         else
             retVal += getChainLength((3*num) + 1, chains);
 
-        //populate chache if number is within range
+        //populate cache if number is within range
         if (num<chains.length)
             chains[(int)num-1] = retVal;
 

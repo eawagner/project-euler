@@ -1,11 +1,11 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
-import practice.project.euler.util.PolygonUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static practice.project.euler.util.GeneralUtil.getNumParitions;
 
 /*
 It is possible to write five as a sum in exactly six different ways:
@@ -26,7 +26,7 @@ public class Problem76 implements Problem{
         Map<Long,Long> cache = new HashMap<Long, Long>(100);
 
 
-        return Long.toString(GeneralUtil.getNumParitions(100, cache)-1);
+        return Long.toString(getNumParitions(100, cache)-1);
     }
 
 

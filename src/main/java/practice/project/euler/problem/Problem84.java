@@ -5,6 +5,7 @@ import practice.project.euler.Problem;
 
 import java.util.TreeMap;
 
+import static java.lang.String.format;
 import static java.util.Collections.reverseOrder;
 
 /*
@@ -78,7 +79,7 @@ public class Problem84 implements Problem {
         StringBuilder retval = new StringBuilder();
         int i = 0;
         for (int square : results.values()) {
-            retval.append(String.format("%02d", square));
+            retval.append(format("%02d", square));
             i++;
             if (i == 3)
                 break;

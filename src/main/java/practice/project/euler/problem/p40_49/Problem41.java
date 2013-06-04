@@ -1,10 +1,12 @@
 package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import static java.lang.Long.parseLong;
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.
@@ -17,7 +19,7 @@ public class Problem41 implements Problem {
 
         for (int i = 9;i>0;i--)
             for (String pandigital : getPandigitals(i))
-                if (PrimeUtil.isPrime(Long.parseLong(pandigital)))
+                if (isPrime(parseLong(pandigital)))
                     return pandigital;
 
         return null;

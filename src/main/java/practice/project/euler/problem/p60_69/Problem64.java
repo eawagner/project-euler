@@ -2,6 +2,8 @@ package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
 
+import static java.lang.Math.sqrt;
+
 /*
 All square roots are periodic when written as continued fractions and can be written in the form:
 √N = a0 +
@@ -139,7 +141,7 @@ public class Problem64 implements Problem{
 //                retVal++;
 
 
-            double tmp = Math.sqrt(i);
+            double tmp = sqrt(i);
             int root = (int)tmp;
             if (tmp==root)
                 continue;
@@ -156,8 +158,6 @@ public class Problem64 implements Problem{
 
             if (iter%2 == 1)
                 retVal++;
-
-
 
         }
 

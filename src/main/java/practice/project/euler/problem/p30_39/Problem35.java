@@ -1,9 +1,11 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.Collection;
+
+import static java.lang.Long.parseLong;
+import static practice.project.euler.util.PrimeUtil.getPrimes;
 
 /*
 The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
@@ -16,7 +18,7 @@ How many circular primes are there below one million?
 public class Problem35 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = PrimeUtil.getPrimes(1000000);
+        Collection<Long> primes = getPrimes(1000000);
         int retVal = 0;
         for (Long prime : primes) {
             String primeStr =prime.toString();
@@ -25,7 +27,7 @@ public class Problem35 implements Problem{
             for (int i = 1;isCircular && i<primeStr.length();i++) {
 
                 primeStr = primeStr.substring(1,primeStr.length()) + primeStr.charAt(0);
-                if (!primes.contains(Long.parseLong(primeStr)))
+                if (!primes.contains(parseLong(primeStr)))
                     isCircular = false;
             }
 

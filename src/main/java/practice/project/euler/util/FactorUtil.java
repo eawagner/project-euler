@@ -3,6 +3,9 @@ package practice.project.euler.util;
 
 import java.util.*;
 
+import static practice.project.euler.util.PrimeUtil.getNextPrime;
+import static practice.project.euler.util.PrimeUtil.isPrime;
+
 public class FactorUtil {
 
     public static List<Long> getFactors(long number){
@@ -30,12 +33,11 @@ public class FactorUtil {
     {
         Map<Long,Integer> retVal = new HashMap<Long, Integer>();
         long prime = 1;
-        long toTest;
         if (number<2)
             return retVal;
 
         while (number !=1){
-            prime = PrimeUtil.getNextPrime(prime);
+            prime = getNextPrime(prime);
             while (number%prime==0)
             {
                 if (retVal.containsKey(prime))
@@ -75,7 +77,7 @@ public class FactorUtil {
         //If the number is not 1 then there weren't enough primes to test it against
         //so check it if was prime, otherwise simply return null for now.
         if (number != 1)
-            if (PrimeUtil.isPrime(number))
+            if (isPrime(number))
                 retVal.put(number,1);
             else
                 return null;

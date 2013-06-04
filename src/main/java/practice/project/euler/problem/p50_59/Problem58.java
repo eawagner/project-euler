@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.
@@ -31,7 +32,7 @@ public class Problem58 implements Problem{
             long square = side*side;
             //Start at one since the first corner is always square, hence not prime.
             for (int j = 1;j<4;j++) {
-                if (PrimeUtil.isPrime(square - j*(side-1)))
+                if (isPrime(square - j * (side - 1)))
                     numPrimes++;
             }
 

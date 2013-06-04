@@ -1,10 +1,12 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static java.lang.Math.pow;
+import static practice.project.euler.util.StringUtil.isPandigital;
 
 /*
 We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.
@@ -25,15 +27,15 @@ public class Problem32 implements Problem{
          For first loop only go to 100 because at most there can only be 2 digits in one of the multipliers.
          for second loop Use 4923 (simply because 9876/2)
          */
-        for (int i = 2;i<100;i++)
-            for (int j = (int)Math.pow(10,Integer.toString(i).length());j<4923;j++) {
+        for (int i = 2;i<100;i++) {
+            for (int j = (int) pow(10, Integer.toString(i).length());j<4923;j++) {
                 int product = i * j;
                 //If there are no combinations of
                 if (product > 100000)
                     break;
                 String toTest = Integer.toString(i) + Integer.toString(j) + Integer.toString(product);
                 if (toTest.length() == 9 &&
-                        StringUtil.isPandigital(toTest) &&
+                        isPandigital(toTest) &&
                         !found.contains(product))
                 {
                     found.add(product);
@@ -41,10 +43,7 @@ public class Problem32 implements Problem{
                 }
 
             }
-
-
-
-
+        }
 
         return Long.toString(retVal);
     }

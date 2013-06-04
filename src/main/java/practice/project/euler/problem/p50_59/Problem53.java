@@ -43,14 +43,6 @@ public class Problem53 implements Problem{
 
             }
 
-          //My old solution was brute force, but better solution discovered using pascal's triangle.
-//        BigInteger million = new BigInteger("1000000");
-//
-//        for (int n = 1;n<=100;n++)
-//            for (int r = 1;r<n;r++)
-//                if (GeneralUtil.getFactorial(n).divide(GeneralUtil.getFactorial(r).multiply(GeneralUtil.getFactorial(n-r))).compareTo(million) >0)
-//                    retVal++;
-
         return Integer.toString(retVal);
     }
 }

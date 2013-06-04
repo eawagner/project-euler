@@ -4,6 +4,8 @@ import practice.project.euler.Problem;
 
 import java.math.BigInteger;
 
+import static java.math.BigInteger.ONE;
+
 /*
 The Fibonacci sequence is defined by the recurrence relation:
 
@@ -31,8 +33,8 @@ What is the first term in the Fibonacci sequence to contain 1000 digits?
  */
 public class Problem25 implements Problem{
     public String getAnswer() throws Exception {
-        BigInteger prev = BigInteger.ONE;
-        BigInteger curr = BigInteger.ONE;
+        BigInteger prev = ONE;
+        BigInteger curr = ONE;
         BigInteger tmp;
         int i = 2;
         while (curr.toString().length()<1000)

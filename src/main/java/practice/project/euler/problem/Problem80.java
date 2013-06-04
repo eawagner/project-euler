@@ -1,10 +1,11 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
+
+import static java.math.BigDecimal.ROUND_HALF_UP;
+import static practice.project.euler.util.StringUtil.getSumOfDigits;
 
 /*
 It is well known that if the square root of a natural number is not an integer, then it is irrational. The decimal expansion of such square roots is infinite without any repeating pattern at all.
@@ -37,7 +38,7 @@ public class Problem80 implements Problem{
 
             String number = curr.toPlainString().replace(".","").substring(0,100);
 
-            retVal += StringUtil.getSumOfDigits(number);
+            retVal += getSumOfDigits(number);
         }
 
 
@@ -45,6 +46,6 @@ public class Problem80 implements Problem{
     }
 
     private BigDecimal refine(BigDecimal guess, BigDecimal s) {
-        return s.divide(guess,101,BigDecimal.ROUND_HALF_UP).add(guess).divide(two,101,BigDecimal.ROUND_HALF_UP);
+        return s.divide(guess,101, ROUND_HALF_UP).add(guess).divide(two,101, ROUND_HALF_UP);
     }
 }

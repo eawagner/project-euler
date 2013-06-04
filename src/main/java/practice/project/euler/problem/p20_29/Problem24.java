@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
+
+import static practice.project.euler.util.GeneralUtil.getFactorial;
 
 /*
 A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
@@ -20,7 +21,7 @@ public class Problem24 implements Problem{
 
         long[] factorials = new long[10];
         for (int i = 0;i< factorials.length;i++)
-            factorials[i] = GeneralUtil.getFactorial(i);
+            factorials[i] = getFactorial(i);
 
 
         long left = 1000000;

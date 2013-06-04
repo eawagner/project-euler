@@ -5,6 +5,10 @@ import practice.project.euler.util.model.ContinuedFraction;
 
 import java.math.BigInteger;
 
+import static java.lang.Math.sqrt;
+import static java.math.BigInteger.ZERO;
+import static practice.project.euler.util.model.ContinuedFraction.fromSquareRoot;
+
 /*
 
 Consider quadratic Diophantine equations of the form:
@@ -31,14 +35,14 @@ Find the value of D ≤ 1000 in minimal solutions of x for which the largest val
 public class Problem66 implements Problem{
     public String getAnswer() throws Exception {
 
-        BigInteger maxX = BigInteger.ZERO;
+        BigInteger maxX = ZERO;
         int retVal = 3;
         for (int d = 8;d<=1000;d++) {
-            double tmp = Math.sqrt(d);
+            double tmp = sqrt(d);
             if (tmp == (long)tmp)
                 continue;
 
-            ContinuedFraction cf = ContinuedFraction.fromSquareRoot(d);
+            ContinuedFraction cf = fromSquareRoot(d);
 
             BigInteger x;
 
@@ -48,12 +52,10 @@ public class Problem66 implements Problem{
             else
                 x = cf.expand(cf.getPeriodLength() * 2 - 1).getNumerator();
 
-            if (maxX.compareTo(x)<0)
-            {
+            if (maxX.compareTo(x)<0) {
                 maxX = x;
                 retVal = d;
             }
-
         }
 
         return Integer.toString(retVal);

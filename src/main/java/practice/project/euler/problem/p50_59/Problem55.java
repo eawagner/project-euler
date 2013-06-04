@@ -1,9 +1,11 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 
 import java.math.BigInteger;
+
+import static practice.project.euler.util.StringUtil.isPalendrome;
+import static practice.project.euler.util.StringUtil.reverse;
 
 /*
 If we take 47, reverse and add, 47 + 74 = 121, which is palindromic.
@@ -43,10 +45,10 @@ public class Problem55 implements Problem{
         if (iteration >= 50)
             return true;
 
-        if (iteration != 0 && StringUtil.isPalendrome(num.toString()))
+        if (iteration != 0 && isPalendrome(num.toString()))
             return false;
 
-        return isLychrel(num.add(new BigInteger(StringUtil.reverse(num.toString()))),iteration+1);
+        return isLychrel(num.add(new BigInteger(reverse(num.toString()))),iteration+1);
     }
 
 }

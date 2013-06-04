@@ -2,6 +2,9 @@ package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
+
 /*
 The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
 
@@ -32,11 +35,11 @@ public class Problem43 implements Problem{
         //This will allow quicker exits if while constructing the number one of the lower digit combinations
         //does not satisfy the divisibility check.
         if (current.length() > 3 &&
-                Integer.parseInt(current.substring(current.length() - 3)) % primes[current.length() - 4] != 0)
+                parseInt(current.substring(current.length() - 3)) % primes[current.length() - 4] != 0)
             return 0;
 
         if (current.length() == 10)
-            return Long.parseLong(current);
+            return parseLong(current);
 
         long retVal = 0;
         for (int i = 0;i<10;i++)

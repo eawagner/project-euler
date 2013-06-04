@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
+
+import static practice.project.euler.util.FactorUtil.gcd;
 
 /*
 Consider the fraction, n/d, where n and d are positive integers. If n<d and HCF(n,d)=1, it is called a reduced proper fraction.
@@ -29,7 +30,7 @@ public class Problem73 implements Problem{
                 max--;
 
             for (long j = min;j<=max;j++)
-                if (FactorUtil.gcd(j,i)==1)
+                if (gcd(j, i)==1)
                     total++;
 
         }

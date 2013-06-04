@@ -3,8 +3,13 @@ package practice.project.euler.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.Arrays.asList;
+import static practice.project.euler.util.PolygonUtil.genPolyagonalNum;
 
 public class GeneralUtil {
 
@@ -33,7 +38,7 @@ public class GeneralUtil {
     }
 
     public static <T> List<List<T>> getPermutations(T... possibleValues) {
-        return getPermutations(Arrays.asList(possibleValues));
+        return getPermutations(asList(possibleValues));
     }
 
     public static <T> List<List<T>> getPermutations(List<T> possibleValues) {
@@ -93,7 +98,7 @@ public class GeneralUtil {
 
         long retVal = 0;
         int k = 1;
-        long pent = PolygonUtil.genPolyagonalNum(5,k);
+        long pent = genPolyagonalNum(5, k);
 
         while (pent<=num) {
 
@@ -104,7 +109,7 @@ public class GeneralUtil {
             if (k>0)
                 k++;
 
-            pent = PolygonUtil.genPolyagonalNum(5,k);
+            pent = genPolyagonalNum(5, k);
 
         }
 

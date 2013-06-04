@@ -1,8 +1,9 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 import practice.project.euler.util.model.Fraction;
+
+import static practice.project.euler.util.StringUtil.getSumOfDigits;
 
 /*
 The square root of 2 can be written as an infinite continued fraction.
@@ -105,6 +106,6 @@ public class Problem65 implements Problem{
         fraction = fraction.add(2);
 
 
-        return Integer.toString(StringUtil.getSumOfDigits(fraction.getNumerator().toString()));
+        return Integer.toString(getSumOfDigits(fraction.getNumerator().toString()));
     }
 }

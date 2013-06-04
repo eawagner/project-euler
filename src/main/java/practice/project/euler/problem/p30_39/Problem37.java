@@ -1,7 +1,10 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static java.lang.Long.parseLong;
+import static practice.project.euler.util.PrimeUtil.getNextPrime;
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.
@@ -28,10 +31,8 @@ public class Problem37 implements Problem {
                 retVal+=currPrime;
             }
 
-            currPrime = PrimeUtil.getNextPrime(currPrime);
-
+            currPrime = getNextPrime(currPrime);
         }
-
 
         return Long.toString(retVal);
     }
@@ -42,7 +43,7 @@ public class Problem37 implements Problem {
             return true;
 
         return checkRight(num.substring(0,num.length()-1)) &&
-                PrimeUtil.isPrime(Long.parseLong(num));
+                isPrime(parseLong(num));
     }
 
     private boolean checkLeft(String num)
@@ -51,7 +52,7 @@ public class Problem37 implements Problem {
             return true;
 
         return checkLeft(num.substring(1, num.length())) &&
-                PrimeUtil.isPrime(Long.parseLong(num));
+                isPrime(parseLong(num));
     }
 
 }

@@ -4,13 +4,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: ewagner
- * Date: 8/15/11
- * Time: 11:07 AM
- * To change this template use File | Settings | File Templates.
- */
+import static java.math.BigInteger.ONE;
+import static java.math.BigInteger.valueOf;
+
 public class ContinuedFraction {
 
     List<Long> frac;
@@ -72,20 +68,20 @@ public class ContinuedFraction {
         if (n<1)
             return new Fraction(get(0),1);
 
-        BigInteger p2 = BigInteger.valueOf(get(0));
-        BigInteger p1 = p2.multiply(BigInteger.valueOf(get(1))).add(BigInteger.ONE);
+        BigInteger p2 = valueOf(get(0));
+        BigInteger p1 = p2.multiply(valueOf(get(1))).add(ONE);
         BigInteger p = p1;
 
-        BigInteger q2 = BigInteger.ONE;
-        BigInteger q1 = BigInteger.valueOf(get(1));
+        BigInteger q2 = ONE;
+        BigInteger q1 = valueOf(get(1));
         BigInteger q = q1;
 
         for (int i = 2;i<=n;i++) {
-            p = BigInteger.valueOf(get(i)).multiply(p1).add(p2);
+            p = valueOf(get(i)).multiply(p1).add(p2);
             p2=p1;
             p1=p;
 
-            q = BigInteger.valueOf(get(i)).multiply(q1).add(q2);
+            q = valueOf(get(i)).multiply(q1).add(q2);
             q2=q1;
             q1=q;
         }

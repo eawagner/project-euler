@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
+
+import static practice.project.euler.util.StringUtil.isPandigital;
 
 /*
 Take the number 192 and multiply it by each of 1, 2, and 3:
@@ -35,7 +36,7 @@ public class Problem38 implements Problem{
                 if (pandig.length() > 9)
                     break;
 
-                if (StringUtil.isPandigital(pandig))
+                if (isPandigital(pandig))
                 {
                     if (pandig.compareTo(retVal)>0)
                         retVal = pandig;

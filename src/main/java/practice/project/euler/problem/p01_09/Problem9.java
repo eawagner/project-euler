@@ -1,8 +1,6 @@
 package practice.project.euler.problem.p01_09;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
-import practice.project.euler.util.GeneralUtil;
 
 /*
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,

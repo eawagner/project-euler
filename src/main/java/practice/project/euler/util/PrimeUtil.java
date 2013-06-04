@@ -1,8 +1,10 @@
 package practice.project.euler.util;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
+
+import static java.lang.Integer.numberOfTrailingZeros;
+import static java.lang.Math.sqrt;
 
 public class PrimeUtil {
 
@@ -19,7 +21,7 @@ public class PrimeUtil {
         if (test%3 == 0)
             return false;
 
-        long sqrt = (long)Math.sqrt(test);
+        long sqrt = (long) sqrt(test);
         long i = 5;
         while (i<=sqrt)
             if (test%(i)==0 || test%(i+2)==0)
@@ -99,7 +101,7 @@ public class PrimeUtil {
 
     private static boolean millerRabinPass(int a, int n) {
         int d = n-1;
-        int s = Integer.numberOfTrailingZeros(d);
+        int s = numberOfTrailingZeros(d);
         d >>= s;
 
         int a_to_power = modular_exponent(a,d,n);

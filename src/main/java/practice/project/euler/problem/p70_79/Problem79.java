@@ -1,13 +1,13 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.io.BufferedReader;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was 531278, they may ask for the 2nd, 3rd, and 5th characters; the expected reply would be: 317.
@@ -20,7 +20,7 @@ Given that the three characters are always asked for in order, analyse the file 
 public class Problem79 implements Problem{
     public String getAnswer() throws Exception {
         List<String> nums = new ArrayList<String>();
-        BufferedReader reader = GeneralUtil.getResource("problem79.txt");
+        BufferedReader reader = getResource("problem79.txt");
         String line;
         String retVal = "";
         while ((line = reader.readLine()) != null)

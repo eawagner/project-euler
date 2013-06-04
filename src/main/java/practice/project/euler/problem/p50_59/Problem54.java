@@ -1,10 +1,12 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.io.BufferedReader;
 import java.util.*;
+
+import static java.util.Map.Entry;
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 In the card game poker, a hand consists of five cards and are ranked, from lowest to highest, in the following way:
@@ -64,7 +66,7 @@ How many hands does Player 1 win?
  */
 public class Problem54 implements Problem{
     public String getAnswer() throws Exception {
-        BufferedReader reader = GeneralUtil.getResource("problem54.txt");
+        BufferedReader reader = getResource("problem54.txt");
         String line;
         int retVal = 0;
         while ((line = reader.readLine()) != null) {
@@ -172,7 +174,7 @@ public class Problem54 implements Problem{
         {
             int highest = 0;
             int numFound = 0;
-            for (Map.Entry<Integer,Integer> group : cardMap.entrySet())
+            for (Entry<Integer,Integer> group : cardMap.entrySet())
             {
                 if (group.getValue() == size) {
                     numFound++;
@@ -190,7 +192,7 @@ public class Problem54 implements Problem{
 
         private int compare(int h1, int h2)
         {
-            return new Integer(h1).compareTo(new Integer(h2));
+            return new Integer(h1).compareTo(h2);
         }
 
         private int compare(int h1_1, int h1_2, int h2_1, int h2_2) {
@@ -242,7 +244,7 @@ public class Problem54 implements Problem{
             }
 
             public int compareTo(Card o) {
-                return new Integer(value).compareTo(new Integer(o.value));
+                return new Integer(value).compareTo(o.value);
             }
         }
     }

@@ -1,9 +1,10 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.util.List;
+
+import static practice.project.euler.util.GeneralUtil.getPermutations;
 
 /*
 Consider the following "magic" 3-gon ring, filled with the numbers 1 to 6, and each line adding to nine.
@@ -32,8 +33,8 @@ public class Problem68 implements Problem{
         //Looking for maximum solution with 16 digits.  This implies that all of the large number will be on the outside
         //of the magic gon.  Since we always start the sequence with the lowest of the outside sequence then no need ot
         //permutate with 6 on the outside that will be the only set that we check.
-        List<List<Integer>> p1 = GeneralUtil.getPermutations(1,2,3,4,5);
-        List<List<Integer>> p2 = GeneralUtil.getPermutations(7,8,9,10);
+        List<List<Integer>> p1 = getPermutations(1, 2, 3, 4, 5);
+        List<List<Integer>> p2 = getPermutations(7, 8, 9, 10);
 
         for (int i = 0;i< p1.size();i++)
             for (int j = 0; j< p2.size();j++) {

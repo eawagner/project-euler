@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
+
+import static practice.project.euler.util.StringUtil.isPalendrome;
 
 /*
 The decimal number, 585 = 1001001001 (binary), is palindromic in both bases.
@@ -21,7 +22,7 @@ public class Problem36 implements Problem {
         //if either is a palendrome.
         for (int i = 1;i<1000000;i+=2)
             if (i%10 != 0 &&
-                    StringUtil.isPalendrome(i) && StringUtil.isPalendrome(Integer.toString(i,2)))
+                    isPalendrome(i) && isPalendrome(Integer.toString(i, 2)))
                 sum += i;
 
 

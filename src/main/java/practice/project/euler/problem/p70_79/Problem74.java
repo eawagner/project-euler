@@ -1,12 +1,13 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.problem.p30_39.Problem34;
-import practice.project.euler.util.GeneralUtil;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+
+import static practice.project.euler.problem.p30_39.Problem34.getDigitFactorials;
+import static practice.project.euler.problem.p30_39.Problem34.getNextItem;
 
 /*
 The number 145 is well known for the property that the sum of the factorial of its digits is equal to 145:
@@ -34,7 +35,7 @@ public class Problem74 implements Problem{
     public String getAnswer() throws Exception {
         Map<Integer,Integer> cache = new HashMap<Integer, Integer>();
         Stack<Integer> currChain = new Stack<Integer>();
-        int [] digitFactorials = Problem34.getDigitFactorials();
+        int [] digitFactorials = getDigitFactorials();
         int retVal = 0;
         for (int i = 1;i<1000000;i++) {
 
@@ -43,10 +44,10 @@ public class Problem74 implements Problem{
 
             currChain.push(i);
 
-            int lastElement = Problem34.getNextItem(i,digitFactorials);
+            int lastElement = getNextItem(i, digitFactorials);
             while (!currChain.contains(lastElement)  && !cache.containsKey(lastElement)) {
                 currChain.push(lastElement);
-                lastElement = Problem34.getNextItem(lastElement,digitFactorials);
+                lastElement = getNextItem(lastElement, digitFactorials);
             }
 
             int additionalAmount = 0;
@@ -65,12 +66,9 @@ public class Problem74 implements Problem{
 
             int n = 1;
             while (!currChain.empty()) {
-                    cache.put(currChain.pop(),n+additionalAmount);
-                    n++;
-                }
-
-
-
+                cache.put(currChain.pop(),n+additionalAmount);
+                n++;
+            }
 
         }
 

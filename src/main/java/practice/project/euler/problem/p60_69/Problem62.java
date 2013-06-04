@@ -6,6 +6,8 @@ import practice.project.euler.util.model.Tuple;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import static java.lang.Math.pow;
+
 /*
 The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 (3843) and 66430125 (4053). In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.
 
@@ -19,14 +21,14 @@ public class Problem62 implements Problem{
 
         for (int i = 5;;i++) {
             //sort the string to group all the bytes together
-            byte[] bytes = Long.toString((long)Math.pow(i,3)).getBytes();
+            byte[] bytes = Long.toString((long) pow(i, 3)).getBytes();
             Arrays.sort(bytes);
             String sorted = new String(bytes);
             //if another number has the same sorted string then it is a permutation.
             if (permCount.containsKey(sorted)) {
                 int currCount = permCount.get(sorted).getValue1() + 1;
                 if (currCount == 5)
-                    return Long.toString((long)Math.pow(permCount.get(sorted).getValue2(),3));
+                    return Long.toString((long) pow(permCount.get(sorted).getValue2(), 3));
                 permCount.put(sorted, new Tuple<Integer, Integer>(currCount, permCount.get(sorted).getValue2()));
             }
             else {

@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
+
+import static practice.project.euler.util.StringUtil.isPermutation;
 
 /*
 It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.
@@ -21,7 +22,7 @@ public class Problem52 implements Problem{
             for (long j = (long)(Math.pow(10,i-1))+1;j<max;j++) {
                 int multiplier = 2;
                 for (;multiplier<=6;multiplier++) {
-                    if (!StringUtil.isPermutation(Long.toString(j),Long.toString(j*multiplier)))
+                    if (!isPermutation(Long.toString(j), Long.toString(j * multiplier)))
                         break;
                 }
 

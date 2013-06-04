@@ -1,10 +1,11 @@
 package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
-import practice.project.euler.util.StringUtil;
 
 import java.util.Collection;
+
+import static practice.project.euler.util.PrimeUtil.getPrimes;
+import static practice.project.euler.util.StringUtil.isPermutation;
 
 /*
 The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
@@ -17,14 +18,14 @@ What 12-digit number do you form by concatenating the three terms in this sequen
 public class Problem49 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = PrimeUtil.getPrimes(2202,10000);
+        Collection<Long> primes = getPrimes(2202, 10000);
 
         for (long prime : primes)
         {
             for (int i = 1;prime + i*2<10000;i++)
                 if (primes.contains(prime+i) && primes.contains(prime+i*2) &&
-                        StringUtil.isPermutation(Long.toString(prime), Long.toString(prime + i)) &&
-                        StringUtil.isPermutation(Long.toString(prime),Long.toString(prime+i*2)))
+                        isPermutation(Long.toString(prime), Long.toString(prime + i)) &&
+                        isPermutation(Long.toString(prime), Long.toString(prime + i * 2)))
                     return Long.toString(prime) + Long.toString(prime+i) + Long.toString(prime+i*2);
         }
 

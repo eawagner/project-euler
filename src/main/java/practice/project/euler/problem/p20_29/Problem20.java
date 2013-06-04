@@ -1,9 +1,11 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 
 import java.math.BigInteger;
+
+import static java.math.BigInteger.ONE;
+import static practice.project.euler.util.StringUtil.getSumOfDigits;
 
 /*
 n! means n × (n − 1) × ... × 3 × 2 × 1
@@ -17,11 +19,11 @@ Find the sum of the digits in the number 100!
 public class Problem20 implements Problem{
     public String getAnswer() {
 
-        BigInteger factorial = BigInteger.ONE;
+        BigInteger factorial = ONE;
 
         for (int i = 2;i<101;i++)
             factorial = factorial.multiply(new BigInteger(Integer.toString(i)));
 
-        return Integer.toString(StringUtil.getSumOfDigits(factorial.toString()));
+        return Integer.toString(getSumOfDigits(factorial.toString()));
     }
 }

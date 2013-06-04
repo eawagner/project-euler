@@ -1,8 +1,9 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
-import practice.project.euler.util.StringUtil;
+
+import static java.lang.Math.pow;
+import static practice.project.euler.util.GeneralUtil.getFactorial;
 
 /*
 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
@@ -32,8 +33,8 @@ public class Problem34 implements Problem{
     private long findMax()
     {
         int numDigits = 1;
-        long valPerDig = GeneralUtil.getFactorial(9);
-        while (Math.pow(10,numDigits) < numDigits * valPerDig)
+        long valPerDig = getFactorial(9);
+        while (pow(10, numDigits) < numDigits * valPerDig)
             numDigits++;
 
         return numDigits*valPerDig;
@@ -44,7 +45,7 @@ public class Problem34 implements Problem{
     {
         int [] retVal = new int[10];
         for (int i = 0;i<retVal.length;i++)
-            retVal[i] = (int) GeneralUtil.getFactorial(i);
+            retVal[i] = (int) getFactorial(i);
 
         return retVal;
     }

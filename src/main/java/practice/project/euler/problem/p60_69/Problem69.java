@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static practice.project.euler.util.PrimeUtil.getNextPrime;
 
 /*
 Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of numbers less than n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.
@@ -24,7 +25,7 @@ Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 public class Problem69 implements Problem{
     public String getAnswer() throws Exception {
 
-        long currPrime = PrimeUtil.getNextPrime(1);
+        long currPrime = getNextPrime(1);
         int retVal = 1;
 
         while (true)
@@ -33,7 +34,7 @@ public class Problem69 implements Problem{
                 retVal*=currPrime;
             else
                 return Integer.toString(retVal);
-            currPrime = PrimeUtil.getNextPrime(currPrime);
+            currPrime = getNextPrime(currPrime);
         }
 
     }

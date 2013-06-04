@@ -1,12 +1,5 @@
 package practice.project.euler.util.model;
 
-/**
- * Created by IntelliJ IDEA.
- * User: ewagner
- * Date: 8/3/11
- * Time: 7:46 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Tuple<T,U> {
     T value1;
     U value2;

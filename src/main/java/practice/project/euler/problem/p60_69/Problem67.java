@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p60_69;
 
 import practice.project.euler.Problem;
-import practice.project.euler.problem.p10_19.Problem18;
+
+import static practice.project.euler.problem.p10_19.Problem18.solveMaxSum;
 
 /*
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
@@ -20,6 +21,6 @@ NOTE: This is a much more difficult version of Problem 18. It is not possible to
  */
 public class Problem67 implements Problem{
     public String getAnswer() throws Exception {
-        return Problem18.solveMaxSum("problem67.txt");
+        return solveMaxSum("problem67.txt");
     }
 }

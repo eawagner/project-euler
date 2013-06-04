@@ -1,9 +1,10 @@
 package practice.project.euler.problem.p10_19;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
 
 import java.math.BigInteger;
+
+import static practice.project.euler.util.StringUtil.getSumOfDigits;
 
 /*
 2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
@@ -16,6 +17,6 @@ public class Problem16 implements Problem{
 
         String tmp = new BigInteger("2").pow(1000).toString();
 
-        return Integer.toString(StringUtil.getSumOfDigits(tmp));
+        return Integer.toString(getSumOfDigits(tmp));
     }
 }

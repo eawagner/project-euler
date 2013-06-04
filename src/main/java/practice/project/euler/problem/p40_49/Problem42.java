@@ -1,8 +1,9 @@
 package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
-import practice.project.euler.util.PolygonUtil;
+
+import static practice.project.euler.util.GeneralUtil.getResource;
+import static practice.project.euler.util.PolygonUtil.isPolyagonalNumber;
 
 /*
 The nth term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
@@ -16,14 +17,14 @@ Using words.txt (right click and 'Save Link/Target As...'), a 16K text file cont
  */
 public class Problem42 implements Problem{
     public String getAnswer() throws Exception {
-        String[] names = GeneralUtil.getResource("problem42.txt").readLine().replace("\"","").split(",");
+        String[] names = getResource("problem42.txt").readLine().replace("\"","").split(",");
         int retVal = 0;
         for (String name : names) {
             int sum = 0;
             for (int i = 0;i<name.length();i++)
                 sum+=name.charAt(i)-64;
 
-            if (PolygonUtil.isPolyagonalNumber(3, sum))
+            if (isPolyagonalNumber(3, sum))
                 retVal++;
 
         }

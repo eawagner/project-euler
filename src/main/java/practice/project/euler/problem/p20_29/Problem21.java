@@ -1,8 +1,9 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
-import practice.project.euler.util.GeneralUtil;
+
+import static practice.project.euler.util.FactorUtil.getFactors;
+import static practice.project.euler.util.GeneralUtil.getSum;
 
 /*
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
@@ -23,8 +24,8 @@ public class Problem21 implements Problem{
             if (cache[i]>0)
                 continue;
 
-            long Da = GeneralUtil.getSum(FactorUtil.getFactors(i));
-            long Db = GeneralUtil.getSum(FactorUtil.getFactors(Da));
+            long Da = getSum(getFactors(i));
+            long Db = getSum(getFactors(Da));
 
             if (i == Db && i != Da)
                 sum += Da + Db;

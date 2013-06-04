@@ -1,12 +1,13 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+
+import static practice.project.euler.util.PrimeUtil.getPrimes;
 
 /*
 The prime 41, can be written as the sum of six consecutive primes:
@@ -26,7 +27,7 @@ public class Problem50 implements Problem{
     public String getAnswer() throws Exception {
 
         List<Long> indexed = new ArrayList<Long>();
-        PrimeUtil.getPrimes(1000000, indexed);
+        getPrimes(1000000, indexed);
 
         Collection<Long> fastLookup = new HashSet<Long>(indexed);
 
@@ -46,7 +47,6 @@ public class Problem50 implements Problem{
                 }
             }
         }
-
 
         return Long.toString(retVal);
     }

@@ -1,7 +1,6 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
+
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by only moving to the right and down, is indicated in bold red and is equal to 2427.
@@ -53,7 +54,7 @@ public class Problem81 implements Problem{
     }
 
     public static void populateData(String file, Vertex[][] cache) throws IOException {
-        BufferedReader reader = GeneralUtil.getResource(file);
+        BufferedReader reader = getResource(file);
         String line;
         int i = 0;
         while ((line = reader.readLine()) != null) {

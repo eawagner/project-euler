@@ -1,8 +1,8 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
-import practice.project.euler.util.GeneralUtil;
+
+import static practice.project.euler.util.GeneralUtil.genNumPythagoreanTrips;
 
 /*
 It turns out that 12 cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
@@ -27,7 +27,7 @@ public class Problem75 implements Problem{
     public String getAnswer() throws Exception {
 
 
-        int [] pTrips = GeneralUtil.genNumPythagoreanTrips(1500000);
+        int [] pTrips = genNumPythagoreanTrips(1500000);
         int retVal = 0;
 
 

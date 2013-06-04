@@ -1,12 +1,14 @@
 package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.util.Map.Entry;
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange). For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.
@@ -23,7 +25,7 @@ Your task has been made easy, as the encryption key consists of three lower case
 public class Problem59 implements Problem{
     public String getAnswer() throws Exception {
 
-        String [] input = GeneralUtil.getResource("problem59.txt").readLine().split(",");
+        String [] input = getResource("problem59.txt").readLine().split(",");
         int[] letters = new int[input.length];
         int[] key = new int[3];
         List<Map<Integer,Integer>> freqAnalysis = new ArrayList<Map<Integer,Integer>>(key.length);
@@ -47,7 +49,7 @@ public class Problem59 implements Problem{
         for (int i = 0;i<key.length;i++) {
             int mostFrequent = 0;
             int maxFound = 0;
-            for (Map.Entry<Integer, Integer> frequency : freqAnalysis.get(i).entrySet())
+            for (Entry<Integer, Integer> frequency : freqAnalysis.get(i).entrySet())
                 if (frequency.getValue() > maxFound) {
                     mostFrequent = frequency.getKey();
                     maxFound = frequency.getValue();

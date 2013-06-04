@@ -22,7 +22,8 @@ public class Problem17 implements Problem{
          */
         int oneTo99 = tensDigits + twentyToNinety * 10 + singleDigits * 9;
 
-        /*The terms onehundred - ninehundred appear 100 times each 100-99.
+        /*
+        The terms onehundred - ninehundred appear 100 times each 100-99.
         The "and" term appears 891 times.  1000 - 100(first 99) - 9(zero case for 100,200...900).
         Finally
          */

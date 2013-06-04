@@ -2,13 +2,6 @@ package practice.project.euler.util;
 
 import practice.project.euler.util.model.Tuple;
 
-/**
- * Created by IntelliJ IDEA.
- * User: ewagner
- * Date: 8/11/11
- * Time: 5:57 PM
- * To change this template use File | Settings | File Templates.
- */
 public class FractionUtil {
 
 

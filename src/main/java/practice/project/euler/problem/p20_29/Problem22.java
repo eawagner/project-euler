@@ -1,10 +1,11 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import java.io.IOException;
-import java.util.Arrays;
+
+import static java.util.Arrays.sort;
+import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
 Using names.txt (right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
@@ -17,8 +18,8 @@ What is the total of all the name scores in the file?
 public class Problem22 implements Problem{
     public String getAnswer() throws IOException {
 
-        String [] names = GeneralUtil.getResource("problem22.txt").readLine().replace("\"","").split(",");
-        Arrays.sort(names);
+        String [] names = getResource("problem22.txt").readLine().replace("\"","").split(",");
+        sort(names);
         long retVal = 0;
         for (int i = 0;i<names.length;i++)
             retVal += getScore(names[i],i+1);

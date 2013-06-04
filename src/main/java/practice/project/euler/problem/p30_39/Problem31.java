@@ -2,8 +2,9 @@ package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 /*
 In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
@@ -22,7 +23,7 @@ public class Problem31 implements Problem{
 
         Long[] tmp = new Long[] {1L,2L,5L,10L,20L,50L,100L,200L};
 
-        return Integer.toString(count(200, tmp.length-1, Arrays.asList(tmp)));
+        return Integer.toString(count(200, tmp.length-1, asList(tmp)));
     }
 
     public static int count(int n, int m, List<Long>  values) {

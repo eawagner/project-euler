@@ -1,10 +1,11 @@
 package practice.project.euler.problem.p70_79;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
-import practice.project.euler.util.StringUtil;
 
 import java.util.ArrayList;
+
+import static practice.project.euler.util.PrimeUtil.getPrimes;
+import static practice.project.euler.util.StringUtil.isPermutation;
 
 /*
 Euler's Totient function, φ(n) [sometimes called the phi function], is used to determine the number of positive numbers less than or equal to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.
@@ -20,7 +21,7 @@ public class Problem70 implements Problem{
 
 
         ArrayList<Long> primes = new ArrayList<Long>();
-        PrimeUtil.getPrimes(4000, primes); //4000 choosen later after solution was found
+        getPrimes(4000, primes); //4000 choosen later after solution was found
 
 
         double leaseFound = 10;
@@ -37,7 +38,7 @@ public class Problem70 implements Problem{
                 if (num > 10000000)
                     break;
                 double ratio = (num)/(double)totient;
-                if (ratio<leaseFound && StringUtil.isPermutation(Long.toString(num), Long.toString(totient))) {
+                if (ratio<leaseFound && isPermutation(Long.toString(num), Long.toString(totient))) {
                     leaseFound = ratio;
                     retVal = num;
                 }

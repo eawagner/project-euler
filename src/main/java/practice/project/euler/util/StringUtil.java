@@ -2,6 +2,9 @@ package practice.project.euler.util;
 
 import java.util.Arrays;
 
+import static java.lang.Integer.parseInt;
+import static java.util.Arrays.sort;
+
 public class StringUtil {
 
     public static boolean isPalendrome(long number){
@@ -22,7 +25,7 @@ public class StringUtil {
     {
         int sum = 0;
         for (int i = 0;i<number.length();i++) {
-            sum += Integer.parseInt(number.substring(i,i+1));
+            sum += parseInt(number.substring(i, i + 1));
         }
         return sum;
     }
@@ -46,9 +49,9 @@ public class StringUtil {
     public static boolean isPermutation(String original, String toCheck)
     {
         byte [] origBytes = original.getBytes();
-        Arrays.sort(origBytes);
+        sort(origBytes);
         byte [] checkBytes = toCheck.getBytes();
-        Arrays.sort(checkBytes);
+        sort(checkBytes);
         return Arrays.equals(origBytes, checkBytes);
 
     }

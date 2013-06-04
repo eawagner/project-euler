@@ -1,7 +1,8 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
+
+import static practice.project.euler.util.PrimeUtil.isPrime;
 
 /*
 Euler published the remarkable quadratic formula:
@@ -31,7 +32,9 @@ public class Problem27 implements Problem{
         for (long a = -999;a<1000;a++)
             for (long b = -999;b<1000;b++) {
                 long n;
-                for (n = 0;PrimeUtil.isPrime((n*(n + a) + b));n++);
+
+                for (n = 0; isPrime((n * (n + a) + b));n++);
+
                 if (n>mostPrimes)
                 {
                     mostPrimes = n;

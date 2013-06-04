@@ -1,8 +1,9 @@
 package practice.project.euler.problem.p30_39;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FractionUtil;
 import practice.project.euler.util.model.Tuple;
+
+import static practice.project.euler.util.FractionUtil.reduceFraction;
 
 /*
 The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
@@ -19,21 +20,9 @@ public class Problem33 implements Problem{
 
         long retNum = 1;
         long retDen = 1;
-//
-//        for (int i = 10;i<100;i++)
-//            for (int j = i + 1;j<100;j++)
-//                if ((i%10 == j/10 || i%10 == j%10 ||
-//                        i/10 == j/10 || i/10 == j%10) &&
-//
-//
-//                        )
-//
-//
 
         //Since the second digit in the numerator is the first digit in the denominator, in order for the fraction to be
         //less than one the second digit in the numberator will always be larger;
-
-
         for (int firstDig = 1;firstDig < 10;firstDig++)
             for (int secondDig = firstDig+1;secondDig<10;secondDig++) {
                 int numerator = firstDig * 10 + secondDig;
@@ -49,6 +38,6 @@ public class Problem33 implements Problem{
             }
 
 
-        return FractionUtil.reduceFraction(new Tuple<Long, Long>(retNum,retDen)).getValue2().toString();
+        return reduceFraction(new Tuple<Long, Long>(retNum, retDen)).getValue2().toString();
     }
 }
