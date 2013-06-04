@@ -35,7 +35,4 @@ public class Problem15 implements Problem{
         return numPaths;
 
     }
-
-
-
 }
