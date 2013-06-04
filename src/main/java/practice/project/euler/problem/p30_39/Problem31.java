@@ -26,7 +26,7 @@ public class Problem31 implements Problem{
         return Integer.toString(count(200, tmp.length-1, asList(tmp)));
     }
 
-    public static int count(int n, int m, List<Long>  values) {
+    public static int count(int n, int m, List<Long> values) {
         if (n==0)
             return 1;
         else if (n<0)

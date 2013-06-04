@@ -2,9 +2,6 @@ package practice.project.euler.problem.p10_19;
 
 import practice.project.euler.Problem;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
 In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
 
@@ -58,39 +55,42 @@ public class Problem11 implements Problem{
                 "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
         String[] lines = input.split("\n");
 
-        List<List<Integer>> grid = new ArrayList<List<Integer>>(lines.length);
+        int[][] grid = new int[lines.length][];
+
         long largestProduct = 1;
         long product;
 
+        int row = 0;
         for (String line : lines) {
             String[] numbers = line.split(" ");
-            List<Integer> row = new ArrayList<Integer>(numbers.length);
-            for (String number : numbers)
-                row.add(new Integer(number));
+            grid[row] = new int[numbers.length];
+            for (int i = 0; i < numbers.length; i++)
+                grid[row][i] = Integer.parseInt(numbers[i]);
 
-            grid.add(row);
+            row++;
         }
 
-        for (int i = 0;i<16;i++)
+        for (int i = 0;i<16;i++) {
             for (int j = 0;j<16;j++){
                 //check vertical
-                product = grid.get(i).get(j) * grid.get(i+1).get(j) * grid.get(i+2).get(j) * grid.get(i+3).get(j);
+                product = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j];
                 if (product > largestProduct)
                     largestProduct = product;
                 //check horizontal
-                product = grid.get(i).get(j) * grid.get(i).get(j+1) * grid.get(i).get(j+2) * grid.get(i).get(j+3);
+                product = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3];
                 if (product > largestProduct)
                     largestProduct = product;
                 //diagonal (\)
-                product = grid.get(i).get(j) * grid.get(i+1).get(j+1) * grid.get(i+2).get(j+2) * grid.get(i+3).get(j+3);
+                product = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3];
                 if (product > largestProduct)
                     largestProduct = product;
                 //diagonal (/)
-                product = grid.get(i+3).get(j) * grid.get(i+2).get(j+1) * grid.get(i+1).get(j+2) * grid.get(i).get(j+3);
+                product = grid[i+3][j] * grid[i+2][j+1] * grid[i+1][j+2] * grid[i][j+3];
                 if (product > largestProduct)
                     largestProduct = product;
 
             }
+        }
 
         return Long.toString(largestProduct);
     }

@@ -20,19 +20,19 @@ public class Problem60 implements Problem{
         List<Long> indexedPrimes = new ArrayList<Long>();
         getPrimes(10000, indexedPrimes);
         boolean pairs[][] = new boolean[indexedPrimes.size()][indexedPrimes.size()];
-
         long aOrder = 10;
+
         for (int a = 0;a<indexedPrimes.size();a++) {
             if (indexedPrimes.get(a) > aOrder)
                 aOrder *=10;
+
             long bOrder = 10;
             for (int b = 0;b<a;b++) {
                 if (indexedPrimes.get(b) > bOrder)
                     bOrder *=10;
 
                 if (isPrime((indexedPrimes.get(a) * bOrder) + indexedPrimes.get(b), indexedPrimes) &&
-                        isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes))
-                {
+                        isPrime((indexedPrimes.get(b) * aOrder) + indexedPrimes.get(a), indexedPrimes)) {
                     pairs[a][b] = true;
                     pairs[b][a] = true;
                 }

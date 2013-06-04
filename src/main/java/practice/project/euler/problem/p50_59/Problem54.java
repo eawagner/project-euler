@@ -73,16 +73,17 @@ public class Problem54 implements Problem{
             Hand hand1 = new Hand();
             Hand hand2 = new Hand();
             String play[] = line.split(" ");
-            for (int i = 0;i<play.length/2;i++) {
+            for (int i = 0;i<play.length/2;i++)
                 hand1.addCard(play[i]);
-            }
 
-            for (int i = play.length/2;i<play.length;i++) {
+
+            for (int i = play.length/2;i<play.length;i++)
                 hand2.addCard(play[i]);
-            }
+
 
             if (hand1.compareTo(hand2) > 0)
                 retVal ++;
+
         }
 
 
@@ -90,11 +91,10 @@ public class Problem54 implements Problem{
     }
 
 
-    private class Hand implements Comparable<Hand>{
+    private class Hand implements Comparable<Hand> {
 
         List<Card> cards = new ArrayList<Card>(5);
         Map<Integer,Integer> cardMap = new HashMap<Integer, Integer>(5);
-
 
         public int compareTo(Hand o) {
             Collections.sort(this.cards);
@@ -170,12 +170,10 @@ public class Problem54 implements Problem{
             return cards.get(cards.size()-1).value;
         }
 
-        private int checkGroup(int size, int num)
-        {
+        private int checkGroup(int size, int num) {
             int highest = 0;
             int numFound = 0;
-            for (Entry<Integer,Integer> group : cardMap.entrySet())
-            {
+            for (Entry<Integer,Integer> group : cardMap.entrySet()) {
                 if (group.getValue() == size) {
                     numFound++;
                     if (group.getKey() > highest)
@@ -190,8 +188,7 @@ public class Problem54 implements Problem{
         }
 
 
-        private int compare(int h1, int h2)
-        {
+        private int compare(int h1, int h2) {
             return new Integer(h1).compareTo(h2);
         }
 
@@ -202,8 +199,7 @@ public class Problem54 implements Problem{
             return compare(h1_2,h2_2);
         }
 
-        public void addCard(String card)
-        {
+        public void addCard(String card) {
             Card cardObj = new Card(card);
             cards.add(cardObj);
             if (cardMap.containsKey(cardObj.value))

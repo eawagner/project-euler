@@ -30,7 +30,6 @@ public class Problem75 implements Problem{
         int [] pTrips = genNumPythagoreanTrips(1500000);
         int retVal = 0;
 
-
         for (int i = 0;i<pTrips.length;i++)
             if (pTrips[i]==1)
                 retVal++;

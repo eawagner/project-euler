@@ -36,8 +36,7 @@ public class Problem38 implements Problem{
                 if (pandig.length() > 9)
                     break;
 
-                if (isPandigital(pandig))
-                {
+                if (isPandigital(pandig)) {
                     if (pandig.compareTo(retVal)>0)
                         retVal = pandig;
 

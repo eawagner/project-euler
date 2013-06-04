@@ -33,15 +33,15 @@ public class Problem32 implements Problem{
                 //If there are no combinations of
                 if (product > 100000)
                     break;
+
                 String toTest = Integer.toString(i) + Integer.toString(j) + Integer.toString(product);
                 if (toTest.length() == 9 &&
                         isPandigital(toTest) &&
-                        !found.contains(product))
-                {
+                        !found.contains(product)) {
+
                     found.add(product);
                     retVal += product;
                 }
-
             }
         }
 

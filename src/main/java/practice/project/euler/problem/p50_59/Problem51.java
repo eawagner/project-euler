@@ -18,13 +18,12 @@ public class Problem51 implements Problem{
 
         long prime = getNextPrime(56003);
 
-        while (prime < 200000)
-        {
+        while (prime < 200000) {
             String primeStr = Long.toString(prime);
             for (int i = 0;i<2;i++) {
                 int numPrimes = 1;
-                if (primeStr.contains(Integer.toString(i)))
-                    for (int j = 0;j<10;j++)
+                if (primeStr.contains(Integer.toString(i))) {
+                    for (int j = 0;j<10;j++) {
                         if (j!=i) {
 
                             //since leading zeros are not counted simply move on from strings where the first digit is replaced.
@@ -38,10 +37,11 @@ public class Problem51 implements Problem{
                                     return primeStr;
                             }
                         }
+                    }
+                }
             }
-
-        prime = getNextPrime(prime);
+            prime = getNextPrime(prime);
+        }
+        return null;
     }
-    return null;
-}
 }

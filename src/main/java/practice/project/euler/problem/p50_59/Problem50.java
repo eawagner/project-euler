@@ -21,9 +21,6 @@ Which prime, below one-million, can be written as the sum of the most consecutiv
 
 */
 public class Problem50 implements Problem{
-
-
-
     public String getAnswer() throws Exception {
 
         List<Long> indexed = new ArrayList<Long>();
@@ -33,10 +30,9 @@ public class Problem50 implements Problem{
 
         int maxChain = 0;
         long retVal = 0;
-        for (int i = 0;i<indexed.size();i++) {
+        for (int i = 0; i<indexed.size(); i++) {
             long sum = 0;
-            for (int j = 0;j<indexed.size()-i;j++)
-            {
+            for (int j = 0; j<indexed.size()-i; j++) {
                 sum+=indexed.get(i+j);
                 if (sum > 1000000)
                     break;

@@ -23,12 +23,12 @@ public class Problem78 implements Problem{
         int[] parts = new int[1000000];
         parts[0] = 1;
 		int num = 1;
-		while(parts[num-1]%1000000 != 0){
+		while(parts[num-1]%1000000 != 0) {
 			int x = 1;
 			int i = 1;
 			parts[num] = 0;
 
-			while(genPolyagonalNum(5, x) <= num){
+			while(genPolyagonalNum(5, x) <= num) {
 				parts[num] = parts[num] + parts[num - (int) genPolyagonalNum(5, x)]*sign(i);
 				parts[num] = parts[num] % 1000000;
 				if(x > 0) x = -x;

@@ -19,8 +19,7 @@ public class Problem15 implements Problem{
         return Long.toString(getNumPaths(CUBE_SIZE,CUBE_SIZE, cache));
     }
 
-    private static long getNumPaths(int x, int y, long[][] cache)
-    {
+    private static long getNumPaths(int x, int y, long[][] cache) {
         if (x == 0 && y == 0)
             return 1;
         if (cache[x][y]>0)

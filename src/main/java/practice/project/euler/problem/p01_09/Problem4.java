@@ -16,7 +16,7 @@ public class Problem4 implements Problem{
         long largest = 0;
         long product = 0;
 
-        for (int a = 999;a>=100;a--)
+        for (int a = 999;a>=100;a--) {
             for (int b = 999;b>=100;b--) {
                 product = a*b;
                 if (product<largest)
@@ -25,7 +25,7 @@ public class Problem4 implements Problem{
                 if (isPalendrome(product))
                     largest = product;
             }
-
+        }
 
         return Long.toString(largest);
     }

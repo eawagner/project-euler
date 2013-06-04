@@ -37,8 +37,7 @@ public class Problem25 implements Problem{
         BigInteger curr = ONE;
         BigInteger tmp;
         int i = 2;
-        while (curr.toString().length()<1000)
-        {
+        while (curr.toString().length()<1000) {
             tmp = curr;
             curr = curr.add(prev);
             prev = tmp;

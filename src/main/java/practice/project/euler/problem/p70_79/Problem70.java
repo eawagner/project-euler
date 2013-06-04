@@ -19,10 +19,8 @@ Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the 
 public class Problem70 implements Problem{
     public String getAnswer() throws Exception {
 
-
         ArrayList<Long> primes = new ArrayList<Long>();
         getPrimes(4000, primes); //4000 choosen later after solution was found
-
 
         double leaseFound = 10;
         long retVal = 0;
@@ -30,9 +28,8 @@ public class Problem70 implements Problem{
         //This mean to include as few primes as possible.  Since no primes fit the permutation property,
         //I used 2 primes.  Reading about RSA you will find that in order to calculate the totient for 2
         //primes it is simply (p-1)(q-1) for primes q and p.
-        for (int i = 0;i< primes.size() - 1;i++)
-            for (int j = i+1;j<primes.size();j++)
-            {
+        for (int i = 0;i< primes.size() - 1;i++) {
+            for (int j = i+1;j<primes.size();j++) {
                 long totient = (primes.get(i) - 1) * (primes.get(j)-1);
                 long num = primes.get(i) * primes.get(j);
                 if (num > 10000000)
@@ -43,6 +40,7 @@ public class Problem70 implements Problem{
                     retVal = num;
                 }
             }
+        }
 
         return Long.toString(retVal);
     }

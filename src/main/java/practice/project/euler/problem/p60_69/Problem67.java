@@ -21,6 +21,6 @@ NOTE: This is a much more difficult version of Problem 18. It is not possible to
  */
 public class Problem67 implements Problem{
     public String getAnswer() throws Exception {
-        return solveMaxSum("problem67.txt");
+        return solveMaxSum("problem67.txt", 100);
     }
 }

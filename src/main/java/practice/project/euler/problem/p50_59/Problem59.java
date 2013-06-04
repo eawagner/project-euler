@@ -35,8 +35,7 @@ public class Problem59 implements Problem{
         for (int i = 0;i<key.length;i++)
             freqAnalysis.add(new HashMap<Integer, Integer>());
 
-        for (int i = 0;i<input.length;i++)
-        {
+        for (int i = 0;i<input.length;i++) {
             Map<Integer,Integer> set = freqAnalysis.get(i % freqAnalysis.size());
             Integer letter = new Integer(input[i]);
             letters[i] = letter;
@@ -49,15 +48,15 @@ public class Problem59 implements Problem{
         for (int i = 0;i<key.length;i++) {
             int mostFrequent = 0;
             int maxFound = 0;
-            for (Entry<Integer, Integer> frequency : freqAnalysis.get(i).entrySet())
+            for (Entry<Integer, Integer> frequency : freqAnalysis.get(i).entrySet()) {
                 if (frequency.getValue() > maxFound) {
                     mostFrequent = frequency.getKey();
                     maxFound = frequency.getValue();
                 }
+            }
 
             //find character that will make most frequent.
-            for (int j = 97;i<123;j++)
-            {
+            for (int j = 97;i<123;j++) {
                 //Looking for the most frequent character to be a space.  otherwise look for e.
                 if ((j^mostFrequent) == 32) {
                     key[i] = j;

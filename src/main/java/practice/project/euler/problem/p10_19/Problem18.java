@@ -4,8 +4,6 @@ import practice.project.euler.Problem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Long.parseLong;
 import static practice.project.euler.util.GeneralUtil.getResource;
@@ -43,26 +41,25 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
  */
 public class Problem18 implements Problem{
     public String getAnswer() {
-        return solveMaxSum("problem18.txt");
+        return solveMaxSum("problem18.txt", 15);
     }
 
-    public static String solveMaxSum(String resourceFile)
-    {
-        List<List<Long>> cache = new ArrayList<List<Long>>();
+    public static String solveMaxSum(String resourceFile, int numLines) {
+        long[][] cache = new long[numLines][];
 
         try {
 
             BufferedReader reader = getResource(resourceFile);
             String line;
-            while ((line = reader.readLine())!=null)
-            {
+            int row = 0;
+            while ((line = reader.readLine())!=null) {
 
                 String[] numbers = line.split(" ");
-                List<Long> row = new ArrayList<Long>(numbers.length);
-                for (String number : numbers)
-                    row.add(parseLong(number));
+                cache[row] = new long[numbers.length];
+                for (int i = 0;i < numbers.length; i++)
+                    cache[row][i] = parseLong(numbers[i]);
 
-                cache.add(row);
+                row++;
             }
             reader.close();
         } catch (IOException e) {
@@ -72,14 +69,12 @@ public class Problem18 implements Problem{
         return Long.toString(getMaxSum(cache));
     }
 
-    private static long getMaxSum(List<List<Long>> cache) {
-        for (int row = cache.size() - 2;row>= 0;row--)
-            for (int i = 0;i<cache.get(row).size();i++)
-                cache.get(row).set(i,
-                        cache.get(row).get(i) +
-                        (cache.get(row + 1).get(i) > cache.get(row + 1).get(i + 1) ? cache.get(row + 1).get(i) : cache.get(row + 1).get(i+1)));
+    private static long getMaxSum(long[][] cache) {
+        for (int row = cache.length - 2;row>= 0;row--)
+            for (int i = 0;i<cache[row].length;i++)
+                cache[row][i] = cache[row][i] + (cache[row + 1][i] > cache[row + 1][i + 1] ? cache[row + 1][i] : cache[row + 1][i+1]);
 
-        return cache.get(0).get(0);
+        return cache[0][0];
     }
 
 }

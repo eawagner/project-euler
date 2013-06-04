@@ -30,8 +30,7 @@ public class Problem12 implements Problem{
 
         long numFactors;
 
-        for (int i = 1;;i++)
-        {
+        for (int i = 1;;i++) {
             triangleNumber = triangleNumber + i;
             numFactors = getFactors(triangleNumber).size() + 1;
 

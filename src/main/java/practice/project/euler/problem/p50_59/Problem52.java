@@ -2,6 +2,7 @@ package practice.project.euler.problem.p50_59;
 
 import practice.project.euler.Problem;
 
+import static java.lang.Math.pow;
 import static practice.project.euler.util.StringUtil.isPermutation;
 
 /*
@@ -16,10 +17,10 @@ public class Problem52 implements Problem{
         //I represents the number of digits
         for (int i = 6;i<10;i++) {
             //In order to be a permutation of the number, num*6 must have the same number of digits.
-            long max = (long)(Math.pow(10,i))/6;
+            long max = (long)(pow(10, i))/6;
 
 
-            for (long j = (long)(Math.pow(10,i-1))+1;j<max;j++) {
+            for (long j = (long)(pow(10, i - 1))+1;j<max;j++) {
                 int multiplier = 2;
                 for (;multiplier<=6;multiplier++) {
                     if (!isPermutation(Long.toString(j), Long.toString(j * multiplier)))

@@ -39,7 +39,6 @@ public class Problem57 implements Problem{
 
         }
 
-
         return Integer.toString(retVal);
     }
 }

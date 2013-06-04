@@ -19,8 +19,7 @@ Find the next triangle number that is also pentagonal and hexagonal.
 public class Problem45 implements Problem{
     public String getAnswer() throws Exception {
 
-        for (int i = 144;;i++)
-        {
+        for (int i = 144;;i++) {
             long hexagonal = genPolyagonalNum(6, i);
             //No need to check triangle numbers since all hex numbers are also triangle numbers
             if (PolygonUtil.isPolyagonalNumber(5, hexagonal))

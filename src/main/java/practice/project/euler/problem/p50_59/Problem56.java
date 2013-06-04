@@ -19,12 +19,13 @@ public class Problem56 implements Problem{
         int max = 0;
         BigInteger min = new BigInteger("95");
 
-        for (BigInteger a = new BigInteger("99");a.compareTo(min)>0;a = a.subtract(ONE))
+        for (BigInteger a = new BigInteger("99");a.compareTo(min)>0;a = a.subtract(ONE)) {
             for (int b = 99;b>90;b--) {
                 int sum = getSumOfDigits(a.pow(b).toString());
                 if (sum > max)
                     max = sum;
             }
+        }
 
 
         return Integer.toString(max);

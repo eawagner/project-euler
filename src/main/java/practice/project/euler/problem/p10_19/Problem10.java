@@ -14,6 +14,5 @@ public class Problem10 implements Problem{
     public String getAnswer() {
 
         return Long.toString(getSum(getPrimes(2000000)));
-
     }
 }

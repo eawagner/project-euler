@@ -1,11 +1,11 @@
 package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.Collection;
 
 import static practice.project.euler.util.FactorUtil.getPrimeFactorization;
+import static practice.project.euler.util.PrimeUtil.getPrimes;
 
 /*
 The first two consecutive numbers to have two distinct prime factors are:
@@ -25,7 +25,7 @@ l
 public class Problem47 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = PrimeUtil.getPrimes(1000);
+        Collection<Long> primes = getPrimes(1000);
 
         //Reworked to only check a number and work its way back.  If any number was found to not have
         //4 factors then I simply jumped up another 4 and tested back until I found a combination where there

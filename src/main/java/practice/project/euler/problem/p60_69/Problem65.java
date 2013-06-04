@@ -93,18 +93,16 @@ public class Problem65 implements Problem{
     public String getAnswer() throws Exception {
 
         Fraction fraction = new Fraction(0L,1L);
-        for (int i = 99;i>0;i--)
-        {
-            if (i%3 == 2) {
+        for (int i = 99;i>0;i--) {
+            if (i%3 == 2)
                 fraction = fraction.add(2* (i/3 + 1));
-            } else
+            else
                 fraction = fraction.add(1);
 
             fraction = fraction.invert();
         }
 
         fraction = fraction.add(2);
-
 
         return Integer.toString(getSumOfDigits(fraction.getNumerator().toString()));
     }

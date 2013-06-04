@@ -2,6 +2,8 @@ package practice.project.euler.problem.p01_09;
 
 import practice.project.euler.Problem;
 
+import static java.lang.Math.sqrt;
+
 /*
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
 a2 + b2 = c2
@@ -16,19 +18,19 @@ public class Problem9 implements Problem{
     public String getAnswer() {
 
         //euclidian algorithm for generating triplets.
-        int max = (int)Math.sqrt(1000);
-        for (int m = 1;m<max;m+=2)
-            for (int n = m+1;n<max;n+=2) {
+        int max = (int) sqrt(1000);
+        for (int m = 1;m<max;m+=2) {
+            for (int n = m+1; n<max; n+=2) {
                 int a = n*n - m*m;
                     int b = 2*m*n;
                     int c = m*m + n*n;
                     int sum = a+b+c;
-                    if (sum== 1000)
+                    if (sum == 1000)
                         return Integer.toString(a*b*c);
                     else if (sum > 1000)
                         break;
             }
-
+        }
 
         return null;
 

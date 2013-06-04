@@ -29,19 +29,18 @@ public class Problem27 implements Problem{
         long mostPrimes = 0;
         long maxProduct=0;
 
-        for (long a = -999;a<1000;a++)
+        for (long a = -999;a<1000;a++) {
             for (long b = -999;b<1000;b++) {
                 long n;
 
                 for (n = 0; isPrime((n * (n + a) + b));n++);
 
-                if (n>mostPrimes)
-                {
+                if (n>mostPrimes) {
                     mostPrimes = n;
                     maxProduct = a*b;
                 }
             }
-
+        }
 
         return Long.toString(maxProduct);
     }

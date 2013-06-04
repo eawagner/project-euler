@@ -24,7 +24,7 @@ public class Problem30 implements Problem{
 
         int max = findMax(5);
         int retVal = 0;
-        for (int i = 2;i<max;i++){
+        for (int i = 2;i<max;i++) {
             int sum = 0;
             String tmp = Integer.toString(i);
             for (int j = 0; j<tmp.length();j++)

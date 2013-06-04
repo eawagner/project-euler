@@ -36,7 +36,6 @@ public class Problem29 implements Problem{
                     }
                 power*=a;
             }
-
         }
 
         for (int i = 2;i < duplicates.length; i++)

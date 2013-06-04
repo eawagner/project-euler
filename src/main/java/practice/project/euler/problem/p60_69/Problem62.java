@@ -29,6 +29,7 @@ public class Problem62 implements Problem{
                 int currCount = permCount.get(sorted).getValue1() + 1;
                 if (currCount == 5)
                     return Long.toString((long) pow(permCount.get(sorted).getValue2(), 3));
+
                 permCount.put(sorted, new Tuple<Integer, Integer>(currCount, permCount.get(sorted).getValue2()));
             }
             else {

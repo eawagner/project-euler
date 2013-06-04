@@ -42,10 +42,8 @@ public class Problem41 implements Problem {
             return;
         }
 
-        for (int i = numDigits;i>0;i--)
-        {
-            if (!used[i])
-            {
+        for (int i = numDigits;i>0;i--) {
+            if (!used[i]) {
                 used[i] = true;
                 generatePandigital(currVal + i,used,numDigits,pandigitals);
                 used[i] = false;

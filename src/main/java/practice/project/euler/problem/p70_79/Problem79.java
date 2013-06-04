@@ -35,7 +35,6 @@ public class Problem79 implements Problem{
             } while (checkLater(cand,nums));
 
             retVal+=cand;
-
             nums = removeCand(cand,nums);
         }
 
@@ -44,10 +43,10 @@ public class Problem79 implements Problem{
 
     private static boolean checkLater(String toCheck, Collection<String> nums) {
 
-        for (String num : nums) {
+        for (String num : nums)
             if (num.length() > 1 && num.indexOf(toCheck)>0)
                 return true;
-        }
+
         return false;
     }
 

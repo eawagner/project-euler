@@ -22,9 +22,9 @@ public class Problem44 implements Problem{
             long currPent = genPolyagonalNum(5, i);
             for (int j = i-1;j>0;j--) {
                 long checkPent = genPolyagonalNum(5, j);
-                if (isPolyagonalNumber(5, currPent - checkPent) &&
-                        isPolyagonalNumber(5, currPent + checkPent))
+                if (isPolyagonalNumber(5, currPent - checkPent) && isPolyagonalNumber(5, currPent + checkPent))
                     return Long.toString(currPent - checkPent);
+
             }
         }
 

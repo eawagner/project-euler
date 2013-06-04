@@ -21,19 +21,13 @@ public class Problem40 implements Problem{
 
         StringBuilder buffer = new StringBuilder(1000001);
 
-
         int num = 0;
-
         while (buffer.length() < 1000001)
-        {
             buffer.append(num++);
-        }
 
         int retVal = 1;
-
-        for (int i = 0;i<6;i++) {
+        for (int i = 0;i<6;i++)
             retVal *= charToInt(buffer.charAt((int) Math.pow(10, i)));
-        }
 
         return Integer.toString(retVal);
     }

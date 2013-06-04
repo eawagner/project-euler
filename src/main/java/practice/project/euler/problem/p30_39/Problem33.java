@@ -23,11 +23,11 @@ public class Problem33 implements Problem{
 
         //Since the second digit in the numerator is the first digit in the denominator, in order for the fraction to be
         //less than one the second digit in the numberator will always be larger;
-        for (int firstDig = 1;firstDig < 10;firstDig++)
+        for (int firstDig = 1;firstDig < 10;firstDig++) {
             for (int secondDig = firstDig+1;secondDig<10;secondDig++) {
                 int numerator = firstDig * 10 + secondDig;
 
-                for (int denom = secondDig * 10 + 1; denom < (secondDig * 10) + 10;denom++)
+                for (int denom = secondDig * 10 + 1; denom < (secondDig * 10) + 10;denom++) {
                     //if the numbers are not the same and the division of the number equals the division
                     //of the first digit of the numberator and the second digit of the divisor then found match
                     if ((numerator != denom)
@@ -35,8 +35,9 @@ public class Problem33 implements Problem{
                         retNum*=numerator;
                         retDen*=denom;
                     }
+                }
             }
-
+        }
 
         return reduceFraction(new Tuple<Long, Long>(retNum, retDen)).getValue2().toString();
     }

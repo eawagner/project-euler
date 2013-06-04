@@ -22,7 +22,7 @@ public class Problem19 implements Problem{
         //Could use Date class to do this very easily, but that is no fun :)
         int days = 0;
         int answer = 0;
-        for (int year = 1901;year <2001;year++)
+        for (int year = 1901;year <2001;year++) {
             for (int month = 1;month<=12;month++) {
                 days += getNumDays(month, year);
                 //since the first was on monday(=x%7=1) don't need to do any shift to days
@@ -30,16 +30,15 @@ public class Problem19 implements Problem{
                 if (days%7==0)
                     answer++;
             }
+        }
         return Integer.toString(answer);
     }
 
-    private int getNumDays(int month, int year)
-    {
+    private int getNumDays(int month, int year) {
 
         //This switch statement could be reorganized to enable java to optimize, but
         //decided on readability over small optimization.
-        switch (month)
-        {
+        switch (month) {
             case 1:
             case 3:
             case 5:

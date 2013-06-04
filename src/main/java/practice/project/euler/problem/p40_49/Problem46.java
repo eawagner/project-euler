@@ -30,10 +30,11 @@ public class Problem46 implements Problem{
                 composite+=2;
 
             boolean found = false;
-            for (int i = 1;i*i*2<composite && !found;i++)
-            {
-                if (isPrime(composite - (i * i * 2)))
+            for (int i = 1;i*i*2<composite && !found;i++) {
+                if (isPrime(composite - (i * i * 2))) {
                     found = true;
+                    break;
+                }
             }
 
             if (!found)

@@ -20,11 +20,12 @@ public class Problem39 implements Problem{
         int retVal = 0;
 
 
-        for (int i = 0;i<pTrips.length;i++)
+        for (int i = 0;i<pTrips.length;i++) {
             if (pTrips[i]>maxSol) {
                 maxSol = pTrips[i];
                 retVal = i;
             }
+        }
 
         return Integer.toString(retVal);
 

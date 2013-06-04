@@ -26,8 +26,7 @@ public class Problem26 implements Problem{
         int maxd = 2;
         int maxlen = 0;
 
-        for (int i = 2;i<=1000;i++)
-        {
+        for (int i = 2;i<=1000;i++) {
             int remainder = 1;
 
             //cycles will at most be as long as the divisor.

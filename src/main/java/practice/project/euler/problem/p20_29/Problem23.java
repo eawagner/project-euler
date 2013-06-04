@@ -1,11 +1,11 @@
 package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.FactorUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static practice.project.euler.util.FactorUtil.getFactors;
 import static practice.project.euler.util.GeneralUtil.getSum;
 
 /*
@@ -25,12 +25,12 @@ public class Problem23 implements Problem{
 
 
         for (int i = 12;i<28123;i++)
-            if (getSum(FactorUtil.getFactors(i))>i)
+            if (getSum(getFactors(i))>i)
                 abudentNumbers.add(i);
 
         boolean hasSum[] = new boolean[28123];
 
-        for (int i = 0;i<abudentNumbers.size();i++)
+        for (int i = 0;i<abudentNumbers.size();i++) {
             for (int j = i;j<abudentNumbers.size();j++) {
                 int sum = abudentNumbers.get(i) + abudentNumbers.get(j);
                 if (sum >= hasSum.length)
@@ -38,6 +38,7 @@ public class Problem23 implements Problem{
 
                 hasSum[sum] = true;
             }
+        }
 
         long retVal = 0;
         for (int i = 0;i<28123;i++)

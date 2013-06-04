@@ -23,16 +23,15 @@ public class Problem82 implements Problem {
     public String getAnswer() throws Exception {
         Vertex[][] cache = new Vertex[80][];
         populateData("problem82.txt", cache);
-
         generateGraph(cache);
 
         long min = Long.MAX_VALUE;
 
-        for (int i = 0;i < cache.length;i++) {
+        for (Vertex[] aCache : cache) {
             cache[0][0].reset();
-            computeShortestPaths(cache[i][0]);
+            computeShortestPaths(aCache[0]);
 
-            for (int j = 0;j< cache[i].length; j++)
+            for (int j = 0; j < aCache.length; j++)
                 if (cache[j][cache.length - 1].getMinDistance() < min)
                     min = cache[j][cache.length - 1].getMinDistance();
 

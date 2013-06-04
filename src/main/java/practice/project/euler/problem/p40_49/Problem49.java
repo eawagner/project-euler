@@ -20,13 +20,13 @@ public class Problem49 implements Problem{
 
         Collection<Long> primes = getPrimes(2202, 10000);
 
-        for (long prime : primes)
-        {
-            for (int i = 1;prime + i*2<10000;i++)
+        for (long prime : primes) {
+            for (int i = 1;prime + i*2<10000;i++) {
                 if (primes.contains(prime+i) && primes.contains(prime+i*2) &&
                         isPermutation(Long.toString(prime), Long.toString(prime + i)) &&
                         isPermutation(Long.toString(prime), Long.toString(prime + i * 2)))
                     return Long.toString(prime) + Long.toString(prime+i) + Long.toString(prime+i*2);
+            }
         }
 
         return null;

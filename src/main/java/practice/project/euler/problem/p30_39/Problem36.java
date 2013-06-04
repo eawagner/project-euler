@@ -21,10 +21,8 @@ public class Problem36 implements Problem {
         //Therefore only check even numbers and quickly check if the number is divisible by 10 before checking
         //if either is a palendrome.
         for (int i = 1;i<1000000;i+=2)
-            if (i%10 != 0 &&
-                    isPalendrome(i) && isPalendrome(Integer.toString(i, 2)))
+            if (i%10 != 0 && isPalendrome(i) && isPalendrome(Integer.toString(i, 2)))
                 sum += i;
-
 
         return Integer.toString(sum);
     }

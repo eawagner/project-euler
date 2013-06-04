@@ -21,8 +21,7 @@ public class Problem34 implements Problem{
 
         int [] cache = getDigitFactorials();
 
-        for (int i = 10;i<=max;i++)
-        {
+        for (int i = 10;i<=max;i++) {
             if (i == getNextItem(i,cache))
                 retSum +=i;
         }

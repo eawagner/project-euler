@@ -29,11 +29,10 @@ public class Problem14 implements Problem{
         int chainlen;
 
         chains[0] = 1;
-        for (int i = 2;i<1000000;i++)
-        {
+        for (int i = 2;i<1000000;i++) {
             chainlen = getChainLength(i,chains);
 
-            if (chainlen> longestChain){
+            if (chainlen> longestChain) {
                 longestChain = chainlen;
                 longest = i;
             }

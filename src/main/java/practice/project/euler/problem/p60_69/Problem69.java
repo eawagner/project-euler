@@ -28,12 +28,12 @@ public class Problem69 implements Problem{
         long currPrime = getNextPrime(1);
         int retVal = 1;
 
-        while (true)
-        {
+        while (true) {
             if (retVal*currPrime<=1000000)
                 retVal*=currPrime;
             else
                 return Integer.toString(retVal);
+
             currPrime = getNextPrime(currPrime);
         }
 

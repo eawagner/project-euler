@@ -43,9 +43,7 @@ public class Problem66 implements Problem{
                 continue;
 
             ContinuedFraction cf = fromSquareRoot(d);
-
             BigInteger x;
-
 
             if (cf.getPeriodLength() %2 == 0)
                 x = cf.expand(cf.getPeriodLength() - 1).getNumerator();

@@ -52,8 +52,7 @@ public class Problem8 implements Problem{
                 "71636269561882670428252483600823257530420752963450";
         long largestProduct = 1;
 
-        for (int i = 0;i+5<number.length();i++)
-        {
+        for (int i = 0;i+5<number.length();i++) {
             long product = 1;
             for (int j = 0;j<5;j++)
                 product *= new Long(number.substring(i+j,i+j+1));

@@ -16,16 +16,13 @@ public class Problem2 implements Problem{
         long sum = 2;
         long retVal=sum;
 
-        while (sum < 4000000)
-        {
+        while (sum < 4000000) {
             long tmp = prev;
             prev = sum;
             sum += tmp;
             if (sum%2==0)
                 retVal += sum;
         }
-
-
 
         return Long.toString(retVal);
     }

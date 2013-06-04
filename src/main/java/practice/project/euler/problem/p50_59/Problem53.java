@@ -32,7 +32,7 @@ public class Problem53 implements Problem{
             pascalTriangle[i][i] = 1;
         }
 
-        for (int i = 1;i<pascalTriangle.length;i++)
+        for (int i = 1;i<pascalTriangle.length;i++) {
             for (int j = 1;j<=i-1;j++) {
                 pascalTriangle[i][j] = pascalTriangle[i-1][j] + pascalTriangle[i-1][j-1];
                 if (pascalTriangle[i][j] > 1000000) {
@@ -42,6 +42,7 @@ public class Problem53 implements Problem{
                 }
 
             }
+        }
 
         return Integer.toString(retVal);
     }

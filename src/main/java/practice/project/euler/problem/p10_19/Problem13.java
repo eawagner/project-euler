@@ -211,9 +211,7 @@ public class Problem13 implements Problem{
 
         Long total = 0L;
         for (String number : numbers)
-        {
             total += new Long(number.substring(0,11));
-        }
 
         return total.toString().substring(0,10);
     }

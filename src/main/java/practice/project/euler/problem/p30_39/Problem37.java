@@ -42,8 +42,7 @@ public class Problem37 implements Problem {
         if (num.length() == 0)
             return true;
 
-        return checkRight(num.substring(0,num.length()-1)) &&
-                isPrime(parseLong(num));
+        return checkRight(num.substring(0,num.length()-1)) && isPrime(parseLong(num));
     }
 
     private boolean checkLeft(String num)
@@ -51,8 +50,7 @@ public class Problem37 implements Problem {
         if (num.length() == 0)
             return true;
 
-        return checkLeft(num.substring(1, num.length())) &&
-                isPrime(parseLong(num));
+        return checkLeft(num.substring(1, num.length())) && isPrime(parseLong(num));
     }
 
 }
