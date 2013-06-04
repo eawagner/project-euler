@@ -1,11 +1,8 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GraphUtil;
 
-import static practice.project.euler.problem.Problem81.populateData;
-import static practice.project.euler.util.GraphUtil.Edge;
-import static practice.project.euler.util.GraphUtil.Vertex;
+import static practice.project.euler.problem.Problem81.*;
 
 /*
 NOTE: This problem is a more challenging version of Problem 81.
@@ -24,17 +21,16 @@ Find the minimal path sum, in matrix.txt (right click and 'Save Link/Target As..
  */
 public class Problem82 implements Problem {
     public String getAnswer() throws Exception {
-        int[][] matrix = new int[80][];
         Vertex[][] cache = new Vertex[80][];
-        populateData("problem82.txt", matrix, cache);
+        populateData("problem82.txt", cache);
 
-        generateGraph(matrix, cache);
+        generateGraph(cache);
 
         long min = Long.MAX_VALUE;
 
         for (int i = 0;i < cache.length;i++) {
             cache[0][0].reset();
-            GraphUtil.computeShortestPaths(cache[i][0], matrix[i][0]);
+            computeShortestPaths(cache[i][0]);
 
             for (int j = 0;j< cache[i].length; j++)
                 if (cache[j][cache.length - 1].getMinDistance() < min)
@@ -45,16 +41,16 @@ public class Problem82 implements Problem {
         return Long.toString(min);
     }
 
-    private static Vertex generateGraph(int[][] matrix, Vertex[][] cache) {
-        for (int i = 0;i < matrix.length;i++) {
-            for (int j = 0; j< matrix[i].length;j++) {
+    private static Vertex generateGraph(Vertex[][] cache) {
+        for (int i = 0;i < cache.length;i++) {
+            for (int j = 0; j< cache[i].length;j++) {
                 if (i != 0)
-                    cache[i][j].getEdges().add(new Edge(cache[i-1][j], matrix[i-1][j]));
-                if (i != matrix.length - 1)
-                    cache[i][j].getEdges().add(new Edge(cache[i+1][j], matrix[i+1][j]));
+                    cache[i][j].getEdges().add(cache[i-1][j]);
+                if (i != cache.length - 1)
+                    cache[i][j].getEdges().add(cache[i+1][j]);
 
-                if (j != matrix[i].length - 1)
-                    cache[i][j].getEdges().add(new Edge(cache[i][j+1], matrix[i][j+1]));
+                if (j != cache[i].length - 1)
+                    cache[i][j].getEdges().add(cache[i][j+1]);
             }
         }
 

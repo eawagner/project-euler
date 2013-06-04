@@ -5,8 +5,10 @@ import practice.project.euler.util.GeneralUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
-import static practice.project.euler.util.GraphUtil.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
 
 /*
 In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by only moving to the right and down, is indicated in bold red and is equal to 2427.
@@ -24,49 +26,105 @@ Find the minimal path sum, in matrix.txt (right click and 'Save Link/Target As..
  */
 public class Problem81 implements Problem{
     public String getAnswer() throws Exception {
-        int[][] matrix = new int[80][];
         Vertex[][] cache = new Vertex[80][];
-        populateData("problem81.txt", matrix, cache);
+        populateData("problem81.txt", cache);
 
-        Vertex root = generateGraph(matrix, cache);
-        computeShortestPaths(root, matrix[0][0]);
+        Vertex root = generateGraph(cache);
+        computeShortestPaths(root);
 
         //Get the reference to the end to grab the min distance from
         Vertex end = cache[cache.length -1][cache[cache.length-1].length-1];
         return Long.toString(end.getMinDistance());
     }
 
-    public static void populateData(String file, int[][] matrix, Vertex[][] cache) throws IOException {
+    private static Vertex generateGraph(Vertex[][] cache) {
+        for (int i = 0;i < cache.length;i++) {
+            for (int j = 0; j< cache[i].length;j++) {
+
+                if (i != cache.length - 1)
+                    cache[i][j].getEdges().add(cache[i+1][j]);
+
+                if (j != cache[i].length - 1)
+                    cache[i][j].getEdges().add(cache[i][j+1]);
+            }
+        }
+
+        return cache[0][0];
+    }
+
+    public static void populateData(String file, Vertex[][] cache) throws IOException {
         BufferedReader reader = GeneralUtil.getResource(file);
         String line;
         int i = 0;
         while ((line = reader.readLine()) != null) {
             String[] strings = line.split(",");
-            matrix[i] = new int[strings.length];
             cache[i] = new Vertex[strings.length];
 
             for (int j = 0;j< strings.length;j++) {
-                matrix[i][j] = Integer.parseInt(strings[j]);
-                cache[i][j] = new Vertex();
+                cache[i][j] = new Vertex(Integer.parseInt(strings[j]));
             }
 
             i++;
         }
     }
 
-    private static Vertex generateGraph(int[][] matrix, Vertex[][] cache) {
-        for (int i = 0;i < matrix.length;i++) {
-            for (int j = 0; j< matrix[i].length;j++) {
+    public static void computeShortestPaths(Vertex source) {
 
-                if (i != matrix.length - 1)
-                    cache[i][j].getEdges().add(new Edge(cache[i+1][j], matrix[i+1][j]));
 
-                if (j != matrix[i].length - 1)
-                    cache[i][j].getEdges().add(new Edge(cache[i][j+1], matrix[i][j+1]));
+        PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>(11, new Comparator<Vertex>() {
+            @Override
+            public int compare(Vertex o1, Vertex o2) {
+                return o1.getMinDistance() < o2.getMinDistance() ? -1 : (o1.getMinDistance() == o2.getMinDistance() ? 0 : 1);
+            }
+        });
+
+        source.setMinDistance(source.getWeight());
+        vertexQueue.add(source);
+
+        while (!vertexQueue.isEmpty()) {
+            Vertex current = vertexQueue.poll();
+            for (Vertex checking : current.getEdges()) {
+                long distanceThroughU = current.getMinDistance() + checking.getWeight();
+                if (distanceThroughU < checking.getMinDistance()) {
+                    vertexQueue.remove(checking);
+                    checking.setMinDistance(distanceThroughU) ;
+                    vertexQueue.add(checking);
+                }
             }
         }
+    }
 
-        return cache[0][0];
+    public static class Vertex {
+        private List<Vertex> edges = new ArrayList<Vertex>();
+        private int weight;
+        private long minDistance = Long.MAX_VALUE;
+
+        public Vertex(int weight) {
+            this.weight = weight;
+        }
+
+        public List<Vertex> getEdges() {
+            return edges;
+        }
+
+        public int getWeight() {
+            return weight;
+        }
+
+        public long getMinDistance() {
+            return minDistance;
+        }
+
+        public void setMinDistance(long minDistance) {
+            this.minDistance = minDistance;
+        }
+
+        public void reset() {
+            minDistance = Long.MAX_VALUE;
+            for (Vertex edge : edges)
+                if (edge.getMinDistance() != Long.MAX_VALUE)
+                    edge.reset();
+        }
     }
 
 }
