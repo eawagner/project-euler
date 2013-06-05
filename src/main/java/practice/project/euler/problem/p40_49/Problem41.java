@@ -2,9 +2,6 @@ package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import static java.lang.Long.parseLong;
 import static practice.project.euler.util.PrimeUtil.isPrime;
 

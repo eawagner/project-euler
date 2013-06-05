@@ -1,5 +1,6 @@
 package practice.project.euler.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
@@ -53,7 +54,7 @@ public class PrimeUtil {
 
     public static Iterable<Long> getPrimes(long start, long max)
     {
-        Collection<Long> primes = new LinkedHashSet<Long>();
+        Collection<Long> primes = new ArrayList<Long>();
         getPrimes(start,max,primes);
         return primes;
     }

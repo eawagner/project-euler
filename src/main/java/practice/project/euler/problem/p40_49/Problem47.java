@@ -2,8 +2,6 @@ package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 
-import java.util.Collection;
-
 import static practice.project.euler.util.FactorUtil.getPrimeFactorization;
 import static practice.project.euler.util.PrimeUtil.getPrimes;
 

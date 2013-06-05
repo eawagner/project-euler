@@ -2,11 +2,6 @@ package practice.project.euler.problem.p40_49;
 
 import practice.project.euler.Problem;
 
-import java.math.BigInteger;
-
-import static java.math.BigInteger.ONE;
-import static java.math.BigInteger.ZERO;
-
 /*
 The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
 

@@ -1,6 +1,6 @@
 package practice.project.euler;
 
-import practice.project.euler.problem.Problem86;
+import practice.project.euler.problem.*;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        Problem problem = new Problem86();
+        Problem problem = new Problem87();
         long startTime= currentTimeMillis();
         try {
             System.out.println(problem.getAnswer());

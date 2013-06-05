@@ -2,7 +2,6 @@ package practice.project.euler.problem;
 
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import static java.lang.Math.sqrt;
 
