@@ -71,7 +71,6 @@ public class Problem81 implements Problem{
 
     public static void computeShortestPaths(Vertex source) {
 
-
         PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>(11, new Comparator<Vertex>() {
             @Override
             public int compare(Vertex o1, Vertex o2) {
