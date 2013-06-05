@@ -120,6 +120,7 @@ public class ProblemTester {
         problemAndResults.put(new Problem83(), "425185");
         problemAndResults.put(new Problem84(), "101524");
         problemAndResults.put(new Problem85(), "2772");
+        problemAndResults.put(new Problem86(), "1818");
 
     }
 

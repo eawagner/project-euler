@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Math.pow;
 import static java.util.Arrays.asList;
 import static practice.project.euler.util.PolygonUtil.genPolyagonalNum;
 
@@ -101,7 +102,7 @@ public class GeneralUtil {
 
         while (pent<=num) {
 
-            int sign = (int)Math.pow(-1,k-1);
+            int sign = (int) pow(-1, k - 1);
 
             retVal+=sign * getNumParitions(num-pent,cache);
             k*=-1;

@@ -22,13 +22,13 @@ public class Problem9 implements Problem{
         for (int m = 1;m<max;m+=2) {
             for (int n = m+1; n<max; n+=2) {
                 int a = n*n - m*m;
-                    int b = 2*m*n;
-                    int c = m*m + n*n;
-                    int sum = a+b+c;
-                    if (sum == 1000)
-                        return Integer.toString(a*b*c);
-                    else if (sum > 1000)
-                        break;
+                int b = 2*m*n;
+                int c = m*m + n*n;
+                int sum = a+b+c;
+                if (sum == 1000)
+                    return Integer.toString(a*b*c);
+                else if (sum > 1000)
+                    break;
             }
         }
 
