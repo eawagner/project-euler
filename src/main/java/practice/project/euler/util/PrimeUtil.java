@@ -65,11 +65,10 @@ public class PrimeUtil {
 
     public static Collection<Long> getPrimes (long start, long max, Collection<Long> container)
     {
-        for (long i = start;i<=max;i++) {
-            if (isPrime(i)) {
+        for (long i = start;i<=max;i++)
+            if (isPrime(i))
                 container.add(i);
-            }
-        }
+
         return container;
     }
 
