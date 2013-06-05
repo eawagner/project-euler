@@ -3,6 +3,7 @@ package practice.project.euler.util;
 
 import java.util.*;
 
+import static java.lang.Math.sqrt;
 import static practice.project.euler.util.PrimeUtil.getNextPrime;
 import static practice.project.euler.util.PrimeUtil.isPrime;
 
@@ -12,7 +13,7 @@ public class FactorUtil {
         List<Long> retVal = new ArrayList<Long>();
         retVal.add(1L);
 
-        long max = (long)Math.sqrt(number);
+        long max = (long) sqrt(number);
 
         for (long i = 2;i<=max;i++)
             if (number%i==0) {
