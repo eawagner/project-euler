@@ -25,7 +25,7 @@ public class Problem87 implements Problem {
     public String getAnswer() throws Exception {
         //Reworked this to use a boolean cache instead of a Set for a major jump in performance.
 
-        //Max is Prime is x^2 + 2^3 + 2^4
+        //Max value is x^2 + 2^3 + 2^4
         int max = (int) sqrt(TARGET - 8 - 16);
         Iterable<Long> primes = getPrimes(max);
         boolean[] cache = new boolean[TARGET];

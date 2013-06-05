@@ -3,10 +3,12 @@ package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import static java.util.Arrays.fill;
+import static java.lang.Math.sqrt;
 
 /*
 
@@ -34,42 +36,67 @@ public class Problem88 implements Problem {
 
     @Override
     public String getAnswer() throws Exception {
+
+        /* Not gonna lie, I found the current solution from the forums and found it great
+         * I left the old recursive calls below for reference.
+         */
+
+        int N = 13000;
+        int[] minSum = new int[N];
+        List<HashSet<Integer>> sums = new ArrayList<HashSet<Integer>>(N);
+
+        for (int i = 2; i < N; i++) {
+            sums.add(new HashSet<Integer>());
+            sums.get(i-2).add(i-1);
+            for (int j = (int) sqrt(i); j > 1; j--) {
+                if (i % j == 0) {
+                    for (int k : sums.get(i/j -2)) {
+                        int s = j - 1 + k;
+                        if (i - s >= 2 && minSum[i - s] == 0)
+                            minSum[i - s] = i;
+                        sums.get(i-2).add(j - 1 + k);
+                    }
+                }
+            }
+        }
+
         Set<Integer> unique = new HashSet<Integer>(12000);
         int sum = 0;
-        for (int k = 2;k<=12000; k++) {
-            int min = getMin(k);
-            if (!unique.contains(min)) {
-                unique.add(min);
-                sum+=min;
+        for (int i = 0;i<=12000; i++) {
+            if (!unique.contains(minSum[i])) {
+                unique.add(minSum[i]);
+                sum+=minSum[i];
             }
         }
         return Integer.toString(sum);
     }
 
-    public int getMin(int k) {
-        //All possible values of psn are k< psn <=2*k.  No need to check upperbound,
-        // as it will stop the first value it finds.
-        for(int psn = k+1; ; psn++)
-            if(solvable(psn, psn, k))
-                return psn;
-
-
-    }
-
-    public boolean solvable(int prod, int sum, int k) {
-        if(sum < k)
-            return false;
-        if(prod == 1)
-            return sum == k;
-        if(k == 1)
-            return prod == sum;
-
-        for(int d = 2; d <= prod && sum-d >= k-1; d++)
-            if(prod%d == 0)
-                if(solvable(prod / d, sum - d, k - 1))
-                    return true;
-
-        return false;
-    }
+    /* Used this previously, but above solution is much faster*/
+//
+//    private static int getMin(int k) {
+//        //All possible values of psn are k< psn <=2*k.  No need to check upperbound,
+//        // as it will stop the first value it finds.
+//        for(int psn = k+1; ; psn++)
+//            if(solvable(psn, psn, k))
+//                return psn;
+//
+//
+//    }
+//
+//    private static boolean solvable(int prod, int sum, int k) {
+//        if(sum < k)
+//            return false;
+//        if(prod == 1)
+//            return sum == k;
+//        if(k == 1)
+//            return prod == sum;
+//
+//        for(int d = 2; d <= prod && sum-d >= k-1; d++)
+//            if(prod%d == 0)
+//                if(solvable(prod / d, sum - d, k - 1))
+//                    return true;
+//
+//        return false;
+//    }
 
 }
