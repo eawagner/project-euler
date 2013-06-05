@@ -19,8 +19,8 @@ Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the 
 public class Problem70 implements Problem{
     public String getAnswer() throws Exception {
 
-        ArrayList<Long> primes = new ArrayList<Long>();
-        getPrimes(4000, primes); //4000 choosen later after solution was found
+        ArrayList<Long> primes = getPrimes(4000, new ArrayList<Long>()); //4000 choosen later after solution was found
+
 
         double leaseFound = 10;
         long retVal = 0;

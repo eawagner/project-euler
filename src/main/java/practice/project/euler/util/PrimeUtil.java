@@ -47,23 +47,23 @@ public class PrimeUtil {
         return false;
     }
 
-    public static Collection<Long> getPrimes(long max){
+    public static Iterable<Long> getPrimes(long max){
         return getPrimes(2,max);
     }
 
-    public static Collection<Long> getPrimes(long start, long max)
+    public static Iterable<Long> getPrimes(long start, long max)
     {
         Collection<Long> primes = new LinkedHashSet<Long>();
         getPrimes(start,max,primes);
         return primes;
     }
 
-    public static Collection<Long> getPrimes (long max, Collection<Long> container)
+    public static <T extends Collection<Long>> T getPrimes (long max, T container)
     {
         return getPrimes(2,max,container);
     }
 
-    public static Collection<Long> getPrimes (long start, long max, Collection<Long> container)
+    public static <T extends Collection<Long>> T getPrimes (long start, long max, T container)
     {
         for (long i = start;i<=max;i++)
             if (isPrime(i))

@@ -18,7 +18,7 @@ public class GeneralUtil {
         return new BufferedReader(new InputStreamReader(GeneralUtil.class.getResourceAsStream("/" + resource)));
     }
 
-    public static long getSum(Collection<Long> numbers) {
+    public static long getSum(Iterable<Long> numbers) {
         long retVal = 0;
 
         for (Long number : numbers)
@@ -27,8 +27,7 @@ public class GeneralUtil {
         return retVal;
     }
 
-    public static long getFactorial(int num)
-    {
+    public static long getFactorial(int num) {
         long retVal = 1;
 
         for (int i= 2;i<=num;i++)

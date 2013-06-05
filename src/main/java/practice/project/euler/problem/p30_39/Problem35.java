@@ -3,6 +3,7 @@ package practice.project.euler.problem.p30_39;
 import practice.project.euler.Problem;
 
 import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import static java.lang.Long.parseLong;
 import static practice.project.euler.util.PrimeUtil.getPrimes;
@@ -18,7 +19,7 @@ How many circular primes are there below one million?
 public class Problem35 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = getPrimes(1000000);
+        Collection<Long> primes = getPrimes(1000000, new LinkedHashSet<Long>());
         int retVal = 0;
         for (Long prime : primes) {
             String primeStr =prime.toString();

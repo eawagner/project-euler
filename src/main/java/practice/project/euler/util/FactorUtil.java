@@ -52,11 +52,10 @@ public class FactorUtil {
         return retVal;
     }
 
-    public static Map<Long,Integer> getPrimeFactorization(long number, Collection<Long> primes)
+    public static Map<Long,Integer> getPrimeFactorization(long number, Iterable<Long> primes)
     {
         Map<Long,Integer> retVal = new HashMap<Long, Integer>();
 
-        long toTest;
         if (number<2)
             return retVal;
 
@@ -94,7 +93,7 @@ public class FactorUtil {
         return count;
     }
 
-    public static long totientFunction(long num, Collection<Long> primes)
+    public static long totientFunction(long num, Iterable<Long> primes)
     {
         long retVal = num;
         for (Long factor : getPrimeFactorization(num,primes).keySet()) {

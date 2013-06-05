@@ -25,7 +25,7 @@ l
 public class Problem47 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = getPrimes(1000);
+        Iterable<Long> primes = getPrimes(1000);
 
         //Reworked to only check a number and work its way back.  If any number was found to not have
         //4 factors then I simply jumped up another 4 and tested back until I found a combination where there

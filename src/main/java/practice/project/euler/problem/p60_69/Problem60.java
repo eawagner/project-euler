@@ -17,8 +17,7 @@ Find the lowest sum for a set of five primes for which any two primes concatenat
 public class Problem60 implements Problem{
     public String getAnswer() throws Exception {
 
-        List<Long> indexedPrimes = new ArrayList<Long>();
-        getPrimes(10000, indexedPrimes);
+        List<Long> indexedPrimes = getPrimes(10000, new ArrayList<Long>());
         boolean pairs[][] = new boolean[indexedPrimes.size()][indexedPrimes.size()];
         long aOrder = 10;
 

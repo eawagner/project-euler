@@ -13,7 +13,7 @@ public class StringUtil {
 
     public static boolean isPalendrome(String string)
     {
-        return new StringBuffer(string).reverse().toString().equals(string);
+        return reverse(string).equals(string);
     }
 
     public static String reverse(String string)

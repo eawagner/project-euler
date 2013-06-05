@@ -3,6 +3,7 @@ package practice.project.euler.problem.p40_49;
 import practice.project.euler.Problem;
 
 import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import static practice.project.euler.util.PrimeUtil.getPrimes;
 import static practice.project.euler.util.StringUtil.isPermutation;
@@ -18,7 +19,7 @@ What 12-digit number do you form by concatenating the three terms in this sequen
 public class Problem49 implements Problem{
     public String getAnswer() throws Exception {
 
-        Collection<Long> primes = getPrimes(2202, 10000);
+        Collection<Long> primes = getPrimes(2202, 10000, new LinkedHashSet<Long>());
 
         for (long prime : primes) {
             for (int i = 1;prime + i*2<10000;i++) {

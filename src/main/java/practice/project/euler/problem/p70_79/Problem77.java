@@ -23,8 +23,7 @@ What is the first value which can be written as the sum of primes in over five t
 public class Problem77 implements Problem{
     public String getAnswer() throws Exception {
 
-        List<Long> primes = new ArrayList<Long>();
-        getPrimes(100, primes);
+        List<Long> primes = getPrimes(100, new ArrayList<Long>());
 
         for (int n = 1;;n++) {
             int total = count(n, primes.size() - 1, primes);

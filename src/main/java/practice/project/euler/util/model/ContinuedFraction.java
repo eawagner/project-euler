@@ -2,10 +2,12 @@ package practice.project.euler.util.model;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.valueOf;
+import static java.util.Arrays.asList;
 
 public class ContinuedFraction {
 
@@ -13,11 +15,8 @@ public class ContinuedFraction {
     int periodStart = -1;
 
 
-    public ContinuedFraction(long... frac)
-    {
-        this.frac = new ArrayList<Long>(frac.length);
-        for (long num : frac)
-            this.frac.add(num);
+    public ContinuedFraction(Long... frac) {
+        this.frac = asList(frac);
 
     }
 
