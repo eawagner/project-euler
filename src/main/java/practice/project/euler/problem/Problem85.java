@@ -18,13 +18,12 @@ public class Problem85 implements Problem {
         for (int x = 1; x< 80; x++) {
             for (int y = 1; y<= x; y++) {
 
-                int numRects = x*(x+1)*y*(y+1)/4;
+                int diff = abs((x*(x+1)*y*(y+1)/4) - 2000000);
 
-                if (closest > abs(numRects - 2000000)) {
+                if (closest > diff) {
                     result = x * y;
-                    closest = abs(numRects - 2000000);
+                    closest = diff;
                 }
-
             }
         }
 

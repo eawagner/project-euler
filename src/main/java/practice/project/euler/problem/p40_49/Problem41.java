@@ -17,39 +17,39 @@ What is the largest n-digit pandigital prime that exists?
 public class Problem41 implements Problem {
     public String getAnswer() throws Exception {
 
-        for (int i = 9;i>0;i--)
-            for (String pandigital : getPandigitals(i))
-                if (isPrime(parseLong(pandigital)))
-                    return pandigital;
+        //Dropped to 7 from 9 after solution was found to speed up.
+        for (int i = 7;i>0;i--) {
+            String candidate = getPandigitals(i);
+            if (candidate != null)
+                return candidate;
+        }
 
         return null;
     }
 
-    private static Collection<String> getPandigitals (int numDigits)
-    {
-        boolean used[] = new boolean[numDigits+1];
-        Collection<String> retVal = new ArrayList<String>(); //ArrayList seems to be the fastest core java collection
-
-        generatePandigital("",used,numDigits,retVal);
-        return retVal;
+    private static String getPandigitals (int numDigits) {
+        return generatePandigital("", new boolean[numDigits+1], numDigits);
     }
 
-    //This generates the highest valued pandigitals and keeps them in order so the underlying collection
-    //should maintain ordering.
-    private static void generatePandigital(String currVal, boolean used[], int numDigits, Collection<String> pandigitals) {
+    //This generates the highest valued pandigital that is prime.
+    private static String generatePandigital(String currVal, boolean used[], int numDigits) {
         if (currVal.length() == numDigits) {
-            pandigitals.add(currVal);
-            return;
+            if (isPrime(parseLong(currVal)))
+                return currVal;
+            return null;
         }
 
         for (int i = numDigits;i>0;i--) {
             if (!used[i]) {
                 used[i] = true;
-                generatePandigital(currVal + i,used,numDigits,pandigitals);
+                String curr = generatePandigital(currVal + i,used,numDigits);
+                if (curr != null)
+                    return curr;
+
                 used[i] = false;
             }
         }
-
+        return null;
     }
 
 }
