@@ -1,8 +1,8 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p80_89;
 
 import practice.project.euler.Problem;
 
-import static practice.project.euler.problem.Problem81.*;
+import static practice.project.euler.problem.p80_89.Problem81.*;
 
 /*
 NOTE: This problem is a significantly more challenging version of Problem 81.

@@ -13,6 +13,7 @@ import practice.project.euler.problem.p40_49.*;
 import practice.project.euler.problem.p50_59.*;
 import practice.project.euler.problem.p60_69.*;
 import practice.project.euler.problem.p70_79.*;
+import practice.project.euler.problem.p80_89.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -124,6 +125,8 @@ public class ProblemTester {
         problemAndResults.put(new Problem87(), "1097343");
         problemAndResults.put(new Problem88(), "7587457");
         problemAndResults.put(new Problem89(), "743");
+
+        problemAndResults.put(new Problem90(), "1217");
 
     }
 
