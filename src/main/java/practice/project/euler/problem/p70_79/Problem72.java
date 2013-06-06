@@ -20,7 +20,7 @@ public class Problem72 implements Problem{
         //from http://oeis.org/A005728
         //F(n) = n * (n + 3) / 2 - SUM(k = 2 to n, F([n/k]))
 
-        //Until I get a totient function that is fast, this is the answer at the bottom is the best I can do.
+        //Until I get a totient function that is fast, the answer at the bottom is the best I can do.
 //        Collection<Long> primes = new ArrayList<Long>();
 //        PrimeUtil.getPrimes(500000,primes);
 //        long total = 0;

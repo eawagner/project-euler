@@ -37,6 +37,14 @@ public class GeneralUtil {
         return retVal;
     }
 
+    public static int[] getDigitFactorials() {
+        int [] retVal = new int[10];
+        for (int i = 0;i<retVal.length;i++)
+            retVal[i] = (int) getFactorial(i);
+
+        return retVal;
+    }
+
     public static <T> List<List<T>> getPermutations(T... possibleValues) {
         return getPermutations(asList(possibleValues));
     }

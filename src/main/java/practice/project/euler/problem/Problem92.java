@@ -2,9 +2,6 @@ package practice.project.euler.problem;
 
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.StringUtil;
-
-import static practice.project.euler.util.StringUtil.charToInt;
 
 /*
 

@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import static practice.project.euler.problem.p30_39.Problem34.getDigitFactorials;
 import static practice.project.euler.problem.p30_39.Problem34.getNextItem;
+import static practice.project.euler.util.GeneralUtil.getDigitFactorials;
 
 /*
 The number 145 is well known for the property that the sum of the factorial of its digits is equal to 145:
@@ -35,7 +35,7 @@ public class Problem74 implements Problem{
     public String getAnswer() throws Exception {
         Map<Integer,Integer> cache = new HashMap<Integer, Integer>();
         Stack<Integer> currChain = new Stack<Integer>();
-        int [] digitFactorials = getDigitFactorials();
+        int[] digitFactorials = getDigitFactorials();
         int retVal = 0;
         for (int i = 1;i<1000000;i++) {
 

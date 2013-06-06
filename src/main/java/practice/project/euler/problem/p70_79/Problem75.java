@@ -26,7 +26,6 @@ Note: This problem has been changed recently, please check that you are using th
 public class Problem75 implements Problem{
     public String getAnswer() throws Exception {
 
-
         int [] pTrips = genNumPythagoreanTrips(1500000);
         int retVal = 0;
 

@@ -3,6 +3,7 @@ package practice.project.euler.problem.p30_39;
 import practice.project.euler.Problem;
 
 import static java.lang.Math.pow;
+import static practice.project.euler.util.GeneralUtil.getDigitFactorials;
 import static practice.project.euler.util.GeneralUtil.getFactorial;
 
 /*
@@ -38,15 +39,6 @@ public class Problem34 implements Problem{
 
         return numDigits*valPerDig;
 
-    }
-
-    public static int[] getDigitFactorials()
-    {
-        int [] retVal = new int[10];
-        for (int i = 0;i<retVal.length;i++)
-            retVal[i] = (int) getFactorial(i);
-
-        return retVal;
     }
 
     public static int getNextItem(int num, int []digitFactorials) {
