@@ -4,7 +4,14 @@ import practice.project.euler.Problem;
 
 import static java.lang.Math.abs;
 
+/*
 
+
+By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:
+
+Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.
+
+ */
 public class Problem85 implements Problem {
     @Override
     public String getAnswer() throws Exception {
