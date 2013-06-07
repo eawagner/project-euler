@@ -8,15 +8,52 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Float.floatToRawIntBits;
+import static java.lang.Float.intBitsToFloat;
 import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
 import static practice.project.euler.util.PolygonUtil.genPolyagonalNum;
 
 public class GeneralUtil {
 
-    public static BufferedReader getResource(String resource)
-    {
+    public static BufferedReader getResource(String resource) {
         return new BufferedReader(new InputStreamReader(GeneralUtil.class.getResourceAsStream("/" + resource)));
+    }
+
+    public static boolean isSquare(long n) {
+        //Found http://stackoverflow.com/questions/295579/fastest-way-to-determine-if-an-integers-square-root-is-an-integer
+        switch((int)(n & 0x3F))
+        {
+            case 0x00: case 0x01: case 0x04: case 0x09: case 0x10: case 0x11:
+            case 0x19: case 0x21: case 0x24: case 0x29: case 0x31: case 0x39:
+            long sqrt;
+            if(n < 410881L)
+            {
+                //John Carmack hack, converted to Java.
+                // See: http://www.codemaestro.com/reviews/9
+                int i;
+                float x2, y;
+
+                x2 = n * 0.5F;
+                y  = n;
+                i  = floatToRawIntBits(y);
+                i  = 0x5f3759df - ( i >> 1 );
+                y  = intBitsToFloat(i);
+                y  = y * ( 1.5F - ( x2 * y * y ) );
+
+                sqrt = (long)(1.0F/y);
+            }
+            else
+            {
+                //Carmack hack gives incorrect answer for n >= 410881.
+                sqrt = (long) sqrt(n);
+            }
+            return sqrt*sqrt == n;
+
+            default:
+                return false;
+        }
     }
 
     public static long getSum(Iterable<Long> numbers) {
@@ -81,7 +118,7 @@ public class GeneralUtil {
 
     public static int[] genNumPythagoreanTrips(int maxP) {
 
-        int max = (int)Math.sqrt(maxP);
+        int max = (int) sqrt(maxP);
         int [] pTrips = new int[maxP +1];
         for (int m = 1;m<max;m+=2)
             for (int n = 2;n<max-m;n+=2)

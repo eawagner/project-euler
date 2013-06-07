@@ -5,8 +5,8 @@ import practice.project.euler.util.model.ContinuedFraction;
 
 import java.math.BigInteger;
 
-import static java.lang.Math.sqrt;
 import static java.math.BigInteger.ZERO;
+import static practice.project.euler.util.GeneralUtil.isSquare;
 import static practice.project.euler.util.model.ContinuedFraction.fromSquareRoot;
 
 /*
@@ -38,8 +38,7 @@ public class Problem66 implements Problem{
         BigInteger maxX = ZERO;
         int retVal = 3;
         for (int d = 8;d<=1000;d++) {
-            double tmp = sqrt(d);
-            if (tmp == (long)tmp)
+            if (isSquare(d))
                 continue;
 
             ContinuedFraction cf = fromSquareRoot(d);
