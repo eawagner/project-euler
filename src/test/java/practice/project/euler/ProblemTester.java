@@ -129,7 +129,7 @@ public class ProblemTester {
         problemAndResults.put(new Problem90(), "1217");
         problemAndResults.put(new Problem91(), "14234");
         problemAndResults.put(new Problem92(), "8581146");
-        //problemAndResults.put(new Problem93(), "8581146");
+        problemAndResults.put(new Problem93(), "1258");
         problemAndResults.put(new Problem94(), "518408346");
 
     }
