@@ -1,7 +1,6 @@
 package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.GeneralUtil;
 
 import static practice.project.euler.util.GeneralUtil.isSquare;
 
@@ -18,7 +17,7 @@ public class Problem94 implements Problem {
 
     @Override
     public String getAnswer() throws Exception {
-        /*TODO Need to optimize this */
+        /*TODO Need to optimize this more */
 
         int max = 1000000000 / 3;
         long total = 0;
@@ -42,9 +41,5 @@ public class Problem94 implements Problem {
         }
 
         return Long.toString(total);
-    }
-
-    private boolean isIntHeight(long a, long b) {
-        return isSquare(a * a - b * b);
     }
 }

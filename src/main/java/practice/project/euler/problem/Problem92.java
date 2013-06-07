@@ -37,7 +37,7 @@ public class Problem92 implements Problem {
         return Integer.toString(result);
     }
 
-    byte calcChainEnd(int num, byte[] cache) {
+    private static byte calcChainEnd(int num, byte[] cache) {
         //For larger numbers reduce first before looking into cache.  Will only happen once per recursion
         if (num >= cache.length)
             return calcChainEnd(squareDigit(num), cache);
