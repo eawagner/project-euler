@@ -2,7 +2,6 @@ package practice.project.euler.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashSet;
 
 import static java.lang.Integer.numberOfTrailingZeros;
 import static java.lang.Math.sqrt;
