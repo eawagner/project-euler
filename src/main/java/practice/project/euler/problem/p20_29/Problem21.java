@@ -2,8 +2,9 @@ package practice.project.euler.problem.p20_29;
 
 import practice.project.euler.Problem;
 
-import static practice.project.euler.util.FactorUtil.getFactors;
-import static practice.project.euler.util.GeneralUtil.getSum;
+import static java.lang.Math.sqrt;
+import static practice.project.euler.util.FactorUtil.sumFactors;
+import static practice.project.euler.util.PrimeUtil.getPrimes;
 
 /*
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
@@ -19,13 +20,14 @@ public class Problem21 implements Problem{
 
         long sum = 0;
         int[] cache = new int[10000];
+        Iterable<Long> primes = getPrimes((long) sqrt(10000));
 
         for (int i = 2;i<cache.length;i++) {
             if (cache[i]>0)
                 continue;
 
-            long Da = getSum(getFactors(i));
-            long Db = getSum(getFactors(Da));
+            long Da = sumFactors(i, primes);
+            long Db = sumFactors(Da, primes);
 
             if (i == Db && i != Da)
                 sum += Da + Db;
@@ -34,11 +36,7 @@ public class Problem21 implements Problem{
             if (Da<cache.length)
                 cache[(int)Da] = (int)Db;
 
-
         }
-
-
-
         return Long.toString(sum);
     }
 }

@@ -9,13 +9,38 @@ import static practice.project.euler.util.PrimeUtil.isPrime;
 
 public class FactorUtil {
 
+    public static long sumFactors(long number, Iterable<Long> primes) {
+        long n = number;
+        long sum = 1;
+
+        for (long prime : primes) {
+            if (n < 1 || prime * prime > n)
+                break;
+
+            if (n % prime == 0) {
+                long tmp = prime * prime;
+                n = n / prime;
+                while (n % prime == 0) {
+                    tmp = tmp * prime;
+                    n = n / prime;
+                }
+                sum *= ((tmp - 1)/(prime - 1));
+            }
+        }
+
+        if (n > 1)
+            sum *= (n + 1);
+
+        return sum - number;
+    }
+
     public static List<Long> getFactors(long number){
         List<Long> retVal = new ArrayList<Long>();
         retVal.add(1L);
 
-        long max = (long) sqrt(number);
+        long max = (long)sqrt(number);
 
-        for (long i = 2;i<=max;i++)
+        for (long i = 2;i<=max;i++) {
             if (number%i==0) {
                 retVal.add(i);
                 long tmp = number/i;
@@ -26,6 +51,7 @@ public class FactorUtil {
                 if (tmp<max)
                     max = tmp;
             }
+        }
 
         return retVal;
     }
@@ -94,8 +120,7 @@ public class FactorUtil {
         return count;
     }
 
-    public static long totientFunction(long num, Iterable<Long> primes)
-    {
+    public static long totientFunction(long num, Iterable<Long> primes) {
         long retVal = num;
         for (Long factor : getPrimeFactorization(num,primes).keySet()) {
             retVal *= (factor-1);
