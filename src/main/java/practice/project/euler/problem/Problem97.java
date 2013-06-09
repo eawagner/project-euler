@@ -2,6 +2,10 @@ package practice.project.euler.problem;
 
 import practice.project.euler.Problem;
 
+import java.math.BigInteger;
+
+import static java.math.BigInteger.ONE;
+
 /*
 
 
@@ -16,13 +20,20 @@ public class Problem97 implements Problem {
     @Override
     public String getAnswer() throws Exception {
 
-        //Applying the first doubling early effectively halves the # of multiplications that need to be done.
-        long result = 28433 * 2;
-        int max = 7830457/2;
+        //faster than original solution, even though using big int.
+        BigInteger mod = new BigInteger("10000000000");
+        BigInteger exp = new BigInteger("2").modPow(new BigInteger("7830457"), mod);
 
-        for (int i = 0;i<max;i++)
-            result = (result << 2) % 10000000000L;
+        return new BigInteger("28433").multiply(exp).mod(mod).add(ONE).toString();
 
-        return Long.toString(result +1);
+//        //Applying the first doubling early effectively halves the # of multiplications that need to be done.
+//        long result = 28433 * 2;
+//        int max = 7830457/2;
+//
+//        for (int i = 0;i<max;i++)
+//            result = (result << 2) % 10000000000L;
+//
+//        return Long.toString(result +1);
+
     }
 }

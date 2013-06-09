@@ -9,9 +9,11 @@ import java.util.Map;
 
 import static java.lang.Float.floatToRawIntBits;
 import static java.lang.Float.intBitsToFloat;
+import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
+import static practice.project.euler.util.FactorUtil.gcd;
 import static practice.project.euler.util.PolygonUtil.genPolyagonalNum;
 
 public class GeneralUtil {
@@ -121,8 +123,8 @@ public class GeneralUtil {
         int [] pTrips = new int[maxP +1];
         for (int m = 1;m<max;m+=2)
             for (int n = 2;n<max-m;n+=2)
-                if (FactorUtil.gcd(m, n)==1) {
-                    int sum = Math.abs(m*m - n*n) + 2*m*n + m*m + n*n;
+                if (gcd(m, n)==1) {
+                    int sum = abs(m * m - n * n) + 2*m*n + m*m + n*n;
                     for (int i = sum;i<=maxP;i+=sum)
                         pTrips[i]+=1;
                 }

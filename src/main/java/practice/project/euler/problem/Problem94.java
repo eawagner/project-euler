@@ -30,13 +30,14 @@ public class Problem94 implements Problem {
             long half = i /2;
             if (isSquare(square - (half * half))) {
                 long perimeter = 3L * i - 1;
-                    total += perimeter;
+                total += perimeter;
+                continue;
             }
 
             half = half + 1;
             if (isSquare(square - (half * half))) {
                 long perimeter = 3L * i + 1;
-                    total += perimeter;
+                total += perimeter;
             }
         }
 
