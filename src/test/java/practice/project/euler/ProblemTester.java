@@ -132,6 +132,7 @@ public class ProblemTester {
         problemAndResults.put(new Problem93(), "1258");
         problemAndResults.put(new Problem94(), "518408346");
         problemAndResults.put(new Problem95(), "14316");
+        problemAndResults.put(new Problem96(), "24702");
 
     }
 
