@@ -134,6 +134,8 @@ public class ProblemTester {
         problemAndResults.put(new Problem95(), "14316");
         problemAndResults.put(new Problem96(), "24702");
         problemAndResults.put(new Problem97(), "8739992577");
+        //problemAndResults.put(new Problem98(), "");
+        problemAndResults.put(new Problem99(), "709");
     }
 
 
