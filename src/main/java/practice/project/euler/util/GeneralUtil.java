@@ -28,28 +28,8 @@ public class GeneralUtil {
         {
             case 0x00: case 0x01: case 0x04: case 0x09: case 0x10: case 0x11:
             case 0x19: case 0x21: case 0x24: case 0x29: case 0x31: case 0x39:
-            long sqrt;
-            if(n < 410881L)
-            {
-                //John Carmack hack, converted to Java.
-                // See: http://www.codemaestro.com/reviews/9
-                int i;
-                float x2, y;
 
-                x2 = n * 0.5F;
-                y  = n;
-                i  = floatToRawIntBits(y);
-                i  = 0x5f3759df - ( i >> 1 );
-                y  = intBitsToFloat(i);
-                y  = y * ( 1.5F - ( x2 * y * y ) );
-
-                sqrt = (long)(1.0F/y);
-            }
-            else
-            {
-                //Carmack hack gives incorrect answer for n >= 410881.
-                sqrt = (long) sqrt(n);
-            }
+            long sqrt = (long) sqrt(n);
             return sqrt*sqrt == n;
 
             default:
