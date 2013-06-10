@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        Problem problem = new Problem99();
+        Problem problem = new Problem98();
         long startTime= currentTimeMillis();
         try {
             System.out.println(problem.getAnswer());

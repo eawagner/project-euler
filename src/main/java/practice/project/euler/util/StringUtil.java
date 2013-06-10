@@ -46,6 +46,10 @@ public class StringUtil {
         return character - 48;
     }
 
+    public static char intToChar(int value) {
+        return (char)(value + 48);
+    }
+
     public static boolean isPermutation(String original, String toCheck)
     {
         byte [] origBytes = original.getBytes();
