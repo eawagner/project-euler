@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.sqrt;
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.valueOf;
 import static java.util.Arrays.asList;
@@ -92,7 +93,7 @@ public class ContinuedFraction {
 
 
     public static ContinuedFraction fromSquareRoot(long d) {
-        double tmp = Math.sqrt(d);
+        double tmp = sqrt(d);
         if (tmp == (long)tmp)
             return new ContinuedFraction((long)tmp);
 

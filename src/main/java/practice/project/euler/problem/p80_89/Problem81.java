@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
+import static java.lang.Integer.parseInt;
 import static practice.project.euler.util.GeneralUtil.getResource;
 
 /*
@@ -62,7 +63,7 @@ public class Problem81 implements Problem{
             cache[i] = new Vertex[strings.length];
 
             for (int j = 0;j< strings.length;j++) {
-                cache[i][j] = new Vertex(Integer.parseInt(strings[j]));
+                cache[i][j] = new Vertex(parseInt(strings[j]));
             }
 
             i++;

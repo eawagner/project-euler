@@ -22,7 +22,7 @@ public class Problem70 implements Problem{
         ArrayList<Long> primes = getPrimes(4000, new ArrayList<Long>()); //4000 choosen later after solution was found
 
 
-        double leaseFound = 10;
+        double leastFound = 10;
         long retVal = 0;
         //solution was based on premise that in order to minimize n/φ(n) we have to maximize φ(n).
         //This mean to include as few primes as possible.  Since no primes fit the permutation property,
@@ -35,8 +35,8 @@ public class Problem70 implements Problem{
                 if (num > 10000000)
                     break;
                 double ratio = (num)/(double)totient;
-                if (ratio<leaseFound && isPermutation(Long.toString(num), Long.toString(totient))) {
-                    leaseFound = ratio;
+                if (ratio<leastFound && isPermutation(Long.toString(num), Long.toString(totient))) {
+                    leastFound = ratio;
                     retVal = num;
                 }
             }

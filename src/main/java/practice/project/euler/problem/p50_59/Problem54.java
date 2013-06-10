@@ -3,8 +3,12 @@ package practice.project.euler.problem.p50_59;
 import practice.project.euler.Problem;
 
 import java.io.BufferedReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import static java.util.Collections.sort;
 import static java.util.Map.Entry;
 import static practice.project.euler.util.GeneralUtil.getResource;
 
@@ -97,8 +101,8 @@ public class Problem54 implements Problem{
         Map<Integer,Integer> cardMap = new HashMap<Integer, Integer>(5);
 
         public int compareTo(Hand o) {
-            Collections.sort(this.cards);
-            Collections.sort(o.cards);
+            sort(this.cards);
+            sort(o.cards);
 
             int result;
 

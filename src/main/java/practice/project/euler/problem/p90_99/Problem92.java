@@ -1,4 +1,4 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p90_99;
 
 
 import practice.project.euler.Problem;
@@ -31,7 +31,6 @@ public class Problem92 implements Problem {
         for (int i = 2; i<= 10000000; i++) {
             if (calcChainEnd(i, cache) == 89)
                 result++;
-
         }
 
         return Integer.toString(result);

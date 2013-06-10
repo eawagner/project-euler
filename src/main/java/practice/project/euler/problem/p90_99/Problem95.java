@@ -1,12 +1,12 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p90_99;
 
 import practice.project.euler.Problem;
-import practice.project.euler.util.PrimeUtil;
 
 import java.util.Stack;
 
 import static java.lang.Math.sqrt;
 import static practice.project.euler.util.FactorUtil.sumFactors;
+import static practice.project.euler.util.PrimeUtil.getPrimes;
 
 /*
 
@@ -28,7 +28,7 @@ public class Problem95 implements Problem {
     public String getAnswer() throws Exception {
         boolean[] cache = new boolean[1000000 + 1];
         Stack<Long> chain = new Stack<Long>();
-        Iterable<Long> primes = PrimeUtil.getPrimes((long) sqrt(1000000));
+        Iterable<Long> primes = getPrimes((long) sqrt(1000000));
 
         int longestChain = 0;
         long retVal = 0;
@@ -75,7 +75,6 @@ public class Problem95 implements Problem {
                 cache[chain.pop().intValue()] = true;
 
         }
-
 
         return Long.toString(retVal);
     }

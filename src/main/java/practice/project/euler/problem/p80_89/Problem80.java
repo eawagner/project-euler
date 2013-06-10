@@ -4,6 +4,7 @@ import practice.project.euler.Problem;
 
 import java.math.BigDecimal;
 
+import static java.lang.Math.sqrt;
 import static java.math.BigDecimal.ROUND_HALF_UP;
 import static practice.project.euler.util.StringUtil.getSumOfDigits;
 
@@ -23,7 +24,7 @@ public class Problem80 implements Problem{
 
         long retVal = 0;
         for (int i = 2;i<=100;i++) {
-            double tmp = Math.sqrt(i);
+            double tmp = sqrt(i);
             if (tmp == (int)tmp)
                 continue;
 

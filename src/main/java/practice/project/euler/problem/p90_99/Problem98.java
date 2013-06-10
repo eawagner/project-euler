@@ -1,4 +1,4 @@
-package practice.project.euler.problem;
+package practice.project.euler.problem.p90_99;
 
 /*
 By replacing each of the letters in the word CARE with 1, 2, 9, and 6 respectively, we form a square number: 1296 = 362. What is remarkable is that, by using the same digital substitutions, the anagram, RACE, also forms a square number: 9216 = 962. We shall call CARE (and RACE) a square anagram word pair and specify further that leading zeroes are not permitted, neither may a different letter have the same digital value as another letter.
@@ -12,9 +12,14 @@ NOTE: All anagrams formed must be contained in the given text file.
 
 import practice.project.euler.Problem;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
+import static java.lang.Integer.parseInt;
 import static java.lang.Math.max;
+import static java.util.Arrays.sort;
 import static practice.project.euler.util.GeneralUtil.getResource;
 import static practice.project.euler.util.GeneralUtil.isSquare;
 import static practice.project.euler.util.StringUtil.intToChar;
@@ -27,7 +32,7 @@ public class Problem98 implements Problem {
 
         for (String word : words) {
             byte[] chars = word.getBytes();
-            Arrays.sort(chars);
+            sort(chars);
             String sorted = new String(chars);
             if (!groups.containsKey(sorted))
                 groups.put(sorted, new ArrayList<String>());
@@ -49,10 +54,10 @@ public class Problem98 implements Problem {
 
     private static int maxSquare (String letters, String word1, String word2) {
         if (letters.length() == 0) {
-            int value1 = Integer.parseInt(word1);
+            int value1 = parseInt(word1);
             if (!isSquare(value1))
                 return 0;
-            int value2 = Integer.parseInt(word2);
+            int value2 = parseInt(word2);
             if (!isSquare(value2))
                 return 0;
 
@@ -69,10 +74,6 @@ public class Problem98 implements Problem {
             if (word1.indexOf(digit) < 0)
                 result = max(result, maxSquare(letters, word1.replace(letter, digit), word2.replace(letter, digit)));
         }
-
-
-
         return result;
-
     }
 }

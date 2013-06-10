@@ -2,6 +2,8 @@ package practice.project.euler.util;
 
 import practice.project.euler.util.model.Tuple;
 
+import static practice.project.euler.util.FactorUtil.gcd;
+
 public class FractionUtil {
 
 
@@ -9,7 +11,7 @@ public class FractionUtil {
         long numerator = fraction.getValue1();
         long denominator = fraction.getValue2();
 
-        long gcd = FactorUtil.gcd(numerator, denominator);
+        long gcd = gcd(numerator, denominator);
 
         return new Tuple<Long, Long>(numerator/gcd,denominator/gcd);
     }

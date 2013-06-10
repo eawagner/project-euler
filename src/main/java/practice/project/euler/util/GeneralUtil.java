@@ -113,8 +113,6 @@ public class GeneralUtil {
                 used[i] = false;
             }
         }
-
-
     }
 
     public static int[] genNumPythagoreanTrips(int maxP) {
